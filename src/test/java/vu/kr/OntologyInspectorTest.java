@@ -6,6 +6,7 @@ import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import uk.ac.manchester.cs.owl.owlapi.OWLSubClassOfAxiomImpl;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -37,7 +38,7 @@ class OntologyInspectorTest {
 
     @org.junit.jupiter.api.Test
     void getAllSubsumptions() {
-        Set<OWLSubClassOfAxiom> result = ontologyInspector.getAllSubsumptions();
+        List<OWLSubClassOfAxiom> result = ontologyInspector.calculateAllSubsumptions();
         assertEquals(11, result.size());
         System.out.println(result);
     }
@@ -45,7 +46,7 @@ class OntologyInspectorTest {
     @org.junit.jupiter.api.Test
     void getAllJustifications() {
         ontologyInspector.calculateAllJustifications();
-        Map<OWLSubClassOfAxiom, Set<Set<OWLAxiom>>> result = ontologyInspector.getAllJustifications();
+        Map<OWLSubClassOfAxiom, Set<Set<OWLAxiom>>> result = ontologyInspector.calculateAllJustifications();
         assertEquals(11, result.size());
     }
 }

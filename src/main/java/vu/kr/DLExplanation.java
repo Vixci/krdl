@@ -17,8 +17,6 @@ public class DLExplanation {
         int option = Integer.parseInt(args[1]);
         switch (option) {
             case 1:
-                ontologyInspector.calculateAllSubsumptions();
-                ontologyInspector.getAllSubsumptions().forEach(System.out::println);
                 try {
                     ontologyInspector.exportAllSubsumptions();
                 } catch (Exception e) {
@@ -33,7 +31,12 @@ public class DLExplanation {
                 }
                 break;
             case 3:
-                ExplainByForgetProvider forgetProvider = new ExplainByForgetProvider(1, ontologyInspector);
+                int forgettingMethod = Integer.parseInt(args[1]);
+                OntologyInspector subsumptionsInspector = new OntologyInspector(
+                        ontologyInspector.getOntologyExportPath()
+                        + File.separator + "/subclasses.nt");
+                ExplainByForgetProvider forgetProvider = new ExplainByForgetProvider(
+                        forgettingMethod, subsumptionsInspector, ontologyInspector.getOntologyExportPath());
                 forgetProvider.explainAllByForgetting();
                 break;
         }

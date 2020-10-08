@@ -1,5 +1,6 @@
 package vu.kr;
 
+import com.google.common.collect.Comparators;
 import openllet.owlapi.OpenlletReasoner;
 import openllet.owlapi.OpenlletReasonerFactory;
 import openllet.owlapi.explanation.PelletExplanation;
@@ -7,6 +8,7 @@ import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.model.parameters.Imports;
 import org.semanticweb.owlapi.reasoner.NodeSet;
+import uk.ac.manchester.cs.owl.owlapi.OWLClassExpressionImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLSubClassOfAxiomImpl;
 
 import java.io.File;
@@ -21,14 +23,12 @@ import java.util.stream.Stream;
  */
 public class OntologyInspector {
     private String ontologyExportPath;
-   // private String ontologyName;
     private OWLOntology ontology;
-    private Set<OWLSubClassOfAxiom> allSubsumptions;
-    private Map<OWLSubClassOfAxiom, Set<Set<OWLAxiom>>> allJustifications;
+//    private Map<OWLSubClassOfAxiom, Set<Set<OWLAxiom>>> allJustifications;
 
     public OntologyInspector(String ontologyFile) {
         File file = new File(ontologyFile);
-        ontologyExportPath = getExportPath(
+        ontologyExportPath = calculateExportPath(
                 file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf(File.separator)),
                 file.getName().split("\\.")[0]);
         setOntology(loadOntologyFromPath(ontologyFile));
@@ -57,6 +57,7 @@ public class OntologyInspector {
             System.out.println("Format : " + ontManager.getOntologyFormat(ontology));
             System.out.println("--------");
             System.out.println("\n");
+            
             return ontology;
         } catch (OWLOntologyCreationException e) {
             System.out.println("ERROR loading ontology located at: " + ontologyPath);
@@ -76,24 +77,30 @@ public class OntologyInspector {
      *
      * @return A set of axioms representing the direct and indirect subsumptions
      */
-    public Set<OWLSubClassOfAxiom> calculateAllSubsumptions() {
-        Set<OWLSubClassOfAxiom> directSubsumptions = ontology.tboxAxioms(Imports.EXCLUDED)
-                .filter(axiom -> axiom.isOfType(AxiomType.SUBCLASS_OF))
-                .map(axiom -> (OWLSubClassOfAxiom) axiom)
-                .collect(Collectors.toSet());
-        allSubsumptions = new HashSet<OWLSubClassOfAxiom>();
+    public List<OWLSubClassOfAxiom> calculateAllSubsumptions() {
+        List<OWLSubClassOfAxiom> directSubsumptions = getDirectSubsumptions();
+        List<OWLSubClassOfAxiom> allSubsumptions = new ArrayList<>();
         for (OWLSubClassOfAxiom axiom: directSubsumptions) {
-            allSubsumptions.addAll(getInferredSubsumptions(axiom).collect(Collectors.toSet()));
+            allSubsumptions.addAll(getInferredSubsumptions(axiom));
         }
-        return allSubsumptions;
+        return allSubsumptions.stream().sorted().collect(Collectors.toList());
     }
 
-    private Stream<OWLSubClassOfAxiom> getInferredSubsumptions(OWLSubClassOfAxiom subsumption) {
+    public List<OWLSubClassOfAxiom> getDirectSubsumptions() {
+        return ontology.tboxAxioms(Imports.EXCLUDED)
+                .filter(axiom -> axiom.isOfType(AxiomType.SUBCLASS_OF))
+                .map(axiom -> (OWLSubClassOfAxiom) axiom)
+                .sorted()
+                .collect(Collectors.toList());
+    }
+
+    private List<OWLSubClassOfAxiom> getInferredSubsumptions(OWLSubClassOfAxiom subsumption) {
         OpenlletReasoner reasoner = OpenlletReasonerFactory.getInstance().createReasoner(ontology);
         NodeSet<OWLClass> superClasses = reasoner.getSuperClasses(subsumption.getSubClass(), false);
         return superClasses.entities()
                 .filter(s -> !s.isOWLThing() && s instanceof OWLClass)
-                .map(s -> new OWLSubClassOfAxiomImpl(subsumption.getSubClass(), s, /* annotations= */ Collections.EMPTY_LIST));
+                .map(s -> new OWLSubClassOfAxiomImpl(subsumption.getSubClass(), s, /* annotations= */ Collections.EMPTY_LIST))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -101,8 +108,8 @@ public class OntologyInspector {
      * The justifications are stored in a map keyed by the sybsumption.
      * For each subsumption we associate a set of justifications.
      */
-    public void calculateAllJustifications() {
-        assert(allSubsumptions != null);
+    public Map<OWLSubClassOfAxiom, Set<Set<OWLAxiom>>> calculateAllJustifications() {
+        List<OWLSubClassOfAxiom> allSubsumptions = calculateAllSubsumptions();
         // Only call this method for small ontologies, for big ones we cannot load everything in memory.
         assert(allSubsumptions.size() < 20);
         // Starting up the Pellet Explanation module.
@@ -113,15 +120,15 @@ public class OntologyInspector {
         // Create an Explanation reasoner with the Pellet Explanation and the Openllet Reasoner modules.
         PelletExplanation explanationsGenerator = new PelletExplanation(reasoner);
 
-        allJustifications = new HashMap<>();
+        Map<OWLSubClassOfAxiom, Set<Set<OWLAxiom>>> allJustifications = new HashMap<>();
 
         // For each subClassOf statement get all its explanations from the ontology
         for (final OWLSubClassOfAxiom subClassStatement : allSubsumptions) {
             Set<Set<OWLAxiom>> explanations = explanationsGenerator.getSubClassExplanations(
                     subClassStatement.getSubClass(), subClassStatement.getSuperClass());
             allJustifications.put(subClassStatement, explanations);
-
         }
+        return allJustifications;
     }
 
 
@@ -132,7 +139,8 @@ public class OntologyInspector {
      * @throws IOException if the file cannot be written
      */
     public void exportAllSubsumptions() throws IOException {
-        allSubsumptions = calculateAllSubsumptions();
+        createExportDir();
+        List<OWLSubClassOfAxiom> allSubsumptions = calculateAllSubsumptions();
 
         File subClassFile = new File(ontologyExportPath + File.separator + "subClasses.nt");
         subClassFile.createNewFile();
@@ -158,24 +166,29 @@ public class OntologyInspector {
      * @param subsumption the subsumption to be justified
      * @param subsumptionId the ID of the subsumption, which is used to identify the explanation in the filename.
      *
-     * @throws IOException
      */
-    private void exportJustification(Set<Set<OWLAxiom>> justifications, OWLSubClassOfAxiom subsumption,  int subsumptionId) throws IOException {
+    private void exportJustifications(Set<Set<OWLAxiom>> justifications, OWLSubClassOfAxiom subsumption,  int subsumptionId) {
         System.out.println("\nExporting explanation for: " + subsumption.getSubClass() + " rdfs:subClassOf " + subsumption.getSuperClass());
 
         int counter = 0;
-        for(Set<OWLAxiom> Explanation: justifications) {
+        for(Set<OWLAxiom> justification: justifications) {
             System.out.println("-> Subsumption #" + subsumptionId + " Justification #" + counter);
             String fileName = "justif-" + subsumptionId + "-" + (counter++) + ".owl";
-            File explanationFile = new File(ontologyExportPath + File.separator + fileName);
-            explanationFile.createNewFile();
-            FileOutputStream fos = new FileOutputStream(explanationFile, false);
-            fos.write(("<!-- Subsumption " + subsumption + " -->\n").getBytes());
-            for (OWLAxiom rule : Explanation) {
-                fos.write(rule.toString().getBytes());
-                fos.write(System.lineSeparator().getBytes());
-            }
-            fos.close();
+            exportOneJustification(justification, fileName);
+        }
+    }
+
+    private void exportOneJustification(Set<OWLAxiom> justification, String fileName) {
+        File justificationsFile = new File(ontologyExportPath + File.separator + fileName);
+        OWLOntologyManager ontManager = OWLManager.createOWLOntologyManager();
+        try {
+            OWLOntology justificationOntology = ontManager.createOntology(justification);
+            //OWLDocumentFormat format = ontManager.getOntologyFormat(justificationOntology);
+            ontManager.saveOntology(justificationOntology, IRI.create(justificationsFile.toURI()));
+        } catch (OWLOntologyStorageException e) {
+            e.printStackTrace();
+        } catch (OWLOntologyCreationException e) {
+            e.printStackTrace();
         }
     }
 
@@ -186,6 +199,7 @@ public class OntologyInspector {
      * @throws IOException
      */
     public void exportAllJustifications() throws IOException {
+        createExportDir();
         OWLOntology subsumptionsOntology = loadOntologyFromPath(ontologyExportPath + File.separator + "subclasses.nt");
 
         Set<OWLSubClassOfAxiom> subsumptions = subsumptionsOntology
@@ -206,16 +220,21 @@ public class OntologyInspector {
 
         // For each subClassOf statement get all its explanations from the ontology
         for (final OWLSubClassOfAxiom subsumption : subsumptions) {
-            Set<Set<OWLAxiom>> explanations = explanationsGenerator.getSubClassExplanations(
-                    subsumption.getSubClass(), subsumption.getSuperClass());
-            exportJustification(explanations, subsumption, counter++);
+            exportJustifications(
+                    explanationsGenerator.getSubClassExplanations(
+                            subsumption.getSubClass(), subsumption.getSuperClass()),
+                    subsumption,
+                    counter++);
         }
     }
 
-    private String getExportPath(String ontologyPath, String ontologyName) {
-        File dir = new File(ontologyPath + File.separator + ontologyName + "_exports");
+    private String calculateExportPath(String ontologyPath, String ontologyName) {
+        return ontologyPath + File.separator + ontologyName + "_exports";
+    }
+
+    private void createExportDir() {
+        File dir = new File(ontologyExportPath);
         dir.mkdir();
-        return dir.getPath();
     }
 
     public OWLOntology getOntology() {
@@ -226,11 +245,7 @@ public class OntologyInspector {
         this.ontology = ontology;
     }
 
-    public Set<OWLSubClassOfAxiom> getAllSubsumptions() {
-        return allSubsumptions;
-    }
-
-    public Map<OWLSubClassOfAxiom, Set<Set<OWLAxiom>>> getAllJustifications() {
-        return allJustifications;
+    public String getOntologyExportPath() {
+        return ontologyExportPath;
     }
 }
