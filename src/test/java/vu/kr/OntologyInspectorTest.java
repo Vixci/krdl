@@ -37,7 +37,7 @@ class OntologyInspectorTest {
     }
 
     @org.junit.jupiter.api.Test
-    void getAllSubsumptions() {
+    void calculateAllSubsumptions() {
         List<OWLSubClassOfAxiom> result = ontologyInspector.calculateAllSubsumptions();
         assertEquals(11, result.size());
         System.out.println(result);

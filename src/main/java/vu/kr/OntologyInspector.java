@@ -83,13 +83,14 @@ public class OntologyInspector {
         for (OWLSubClassOfAxiom axiom: directSubsumptions) {
             allSubsumptions.addAll(getInferredSubsumptions(axiom));
         }
-        return allSubsumptions.stream().sorted().collect(Collectors.toList());
+        return allSubsumptions.stream().distinct().sorted().collect(Collectors.toList());
     }
 
     public List<OWLSubClassOfAxiom> getDirectSubsumptions() {
         return ontology.tboxAxioms(Imports.EXCLUDED)
                 .filter(axiom -> axiom.isOfType(AxiomType.SUBCLASS_OF))
                 .map(axiom -> (OWLSubClassOfAxiom) axiom)
+                .distinct()
                 .sorted()
                 .collect(Collectors.toList());
     }
@@ -100,6 +101,8 @@ public class OntologyInspector {
         return superClasses.entities()
                 .filter(s -> !s.isOWLThing() && s instanceof OWLClass)
                 .map(s -> new OWLSubClassOfAxiomImpl(subsumption.getSubClass(), s, /* annotations= */ Collections.EMPTY_LIST))
+                .distinct()
+                .sorted()
                 .collect(Collectors.toList());
     }
 
@@ -172,7 +175,8 @@ public class OntologyInspector {
 
         int counter = 0;
         for(Set<OWLAxiom> justification: justifications) {
-            System.out.println("-> Subsumption #" + subsumptionId + " Justification #" + counter);
+            System.out.println("-> Subsumption #" + subsumptionId + ": " + subsumption);
+            System.out.println("-> #" + subsumptionId + " Justification #" + counter);
             String fileName = "justif-" + subsumptionId + "-" + (counter++) + ".owl";
             exportOneJustification(justification, fileName);
         }
@@ -202,14 +206,16 @@ public class OntologyInspector {
         createExportDir();
         OWLOntology subsumptionsOntology = loadOntologyFromPath(ontologyExportPath + File.separator + "subclasses.nt");
 
-        Set<OWLSubClassOfAxiom> subsumptions = subsumptionsOntology
+        List<OWLSubClassOfAxiom> subsumptions = subsumptionsOntology
                 .tboxAxioms(Imports.EXCLUDED)
                 .map(a -> (OWLSubClassOfAxiom) a)
-                .collect(Collectors.toSet());
+                .distinct()
+                .sorted()
+                .collect(Collectors.toList());
         exportAllJustifications(subsumptions);
     }
 
-    public void exportAllJustifications(Set<OWLSubClassOfAxiom> subsumptions) throws IOException {
+    public void exportAllJustifications(List<OWLSubClassOfAxiom> subsumptions) throws IOException {
         int counter = 0;
         PelletExplanation.setup();
 

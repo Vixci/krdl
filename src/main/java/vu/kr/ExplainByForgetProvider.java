@@ -55,8 +55,10 @@ public class ExplainByForgetProvider {
     }
 
 
+    /**
+     * Forgets all the symbols in the justification with the aim to explain it better.
+     */
     public void explainByForgetting(OWLSubClassOfAxiom subsumption, int index) {
-
         List<Path> justificationFilePaths = getJustificationFilePaths(index);
         System.out.println(subsumption);
         for(Path justificationFilePath : justificationFilePaths) {
@@ -68,21 +70,23 @@ public class ExplainByForgetProvider {
             List<Set<OWLEntity>> strategy = getStrategy(toBeForgotten);
             for (Set<OWLEntity> batch : strategy) {
                 OWLOntology newOntology = forgetter.forget(justificationInspector.getOntology(), batch);
-                // TODO(Vixci): output the new ontology
+                justificationInspector.setOntology(newOntology);
+                // TODO(Vixci): Replace the ontology to forget from with the new one.
+                // TODO(Vixci): Output the new ontology
                 System.out.println(newOntology);
             }
         }
 
     }
 
+    /**
+     * Retrieve the list of paths where the justifications for the subsumption with index 'index'
+     */
     public List<Path> getJustificationFilePaths(int index) {
         PathMatcher pathMatcher = FileSystems.getDefault()
                 .getPathMatcher("glob:**justif-"+index+"-*.owl");
-
         try (DirectoryStream<Path> dirStream = Files.newDirectoryStream(
                 new File(justificationsPath).toPath(), pathMatcher::matches)) {
-//            System.out.println(justificationsPath);
-//            dirStream.forEach(System.out::println);
             List<Path> paths = new ArrayList<>();
             for (Path path : dirStream) {
                 paths.add(path);
@@ -95,12 +99,18 @@ public class ExplainByForgetProvider {
         return null;
     }
 
+    /**
+     * Explains all the subsumptions' justifications using forgetting.
+     */
     public void explainAllByForgetting () {
         List<OWLSubClassOfAxiom> subsumptions = subsumptionsInspector.getDirectSubsumptions();
         int index = 0;
         for (OWLSubClassOfAxiom subsumption : subsumptions) {
+            System.out.println("-> Explaining subsumption #" + index + ": " + subsumption);
             explainByForgetting(subsumption, index++);
-            if (index > 3) break;
+            System.out.println("---------------------------------------------------");
+            // TODO(Vixci) remove this line after debugging
+            if (index > 1) break;
         }
     }
 }
