@@ -1,0 +1,39 @@
+PeperoniSausageTopping ⊑ MeatTopping
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+NonVegetarianPizza ≡ (Pizza ⊓ ¬VegetarianPizza)
+VegetarianPizza ≡ (Pizza ⊓ ¬∃hasTopping.FishTopping ⊓ ¬∃hasTopping.MeatTopping)
+domain(hasTopping) = Pizza
+----------------------------------------------------------------------------------------------------
+Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤ ⊔ ∃hasTopping.MeatTopping)
+PeperoniSausageTopping ⊑ MeatTopping
+NonVegetarianPizza ⊑ (Pizza ⊓ ¬VegetarianPizza)
+VegetarianPizza ⊑ Pizza
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
+(VegetarianPizza ⊓ ∃hasTopping.MeatTopping) ⊑ ⊥
+∃hasTopping.⊤ ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
+VegetarianPizza ⊑ Pizza
+∃hasTopping.⊤ ⊑ Pizza
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤)
+NonVegetarianPizza ⊑ (Pizza ⊓ ¬VegetarianPizza)
+(VegetarianPizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ ⊥
+----------------------------------------------------------------------------------------------------
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+∃hasTopping.⊤ ⊑ Pizza
+(Pizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ NonVegetarianPizza
+(NonVegetarianPizza ⊓ Pizza) ⊑ ∃hasTopping.⊤
+NonVegetarianPizza ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+American ⊑ Pizza
+(American ⊓ Pizza) ⊑ NonVegetarianPizza
+NonVegetarianPizza ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+American ⊑ Pizza
+(American ⊓ Pizza) ⊑ NonVegetarianPizza
+NonVegetarianPizza ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+American ⊑ NonVegetarianPizza
+----------------------------------------------------------------------------------------------------

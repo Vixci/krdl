@@ -1,0 +1,26 @@
+American ⊑ NamedPizza
+MozzarellaTopping ⊑ CheeseTopping
+NamedPizza ⊑ Pizza
+American ⊑ ∃hasTopping.MozzarellaTopping
+CheeseyPizza ≡ (Pizza ⊓ ∃hasTopping.CheeseTopping)
+----------------------------------------------------------------------------------------------------
+CheeseyPizza ⊑ (Pizza ⊓ ∃hasTopping.CheeseTopping)
+MozzarellaTopping ⊑ CheeseTopping
+(Pizza ⊓ ∃hasTopping.CheeseTopping) ⊑ CheeseyPizza
+American ⊑ ∃hasTopping.MozzarellaTopping
+American ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+American ⊑ ∃hasTopping.MozzarellaTopping
+American ⊑ Pizza
+CheeseyPizza ⊑ Pizza
+CheeseyPizza ⊑ ∃hasTopping.⊤
+(Pizza ⊓ ∃hasTopping.MozzarellaTopping) ⊑ CheeseyPizza
+----------------------------------------------------------------------------------------------------
+(American ⊓ Pizza) ⊑ CheeseyPizza
+CheeseyPizza ⊑ Pizza
+American ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+American ⊑ CheeseyPizza
+----------------------------------------------------------------------------------------------------
+American ⊑ CheeseyPizza
+----------------------------------------------------------------------------------------------------

@@ -1,0 +1,40 @@
+isBaseOf ⊑ isIngredientOf
+AmericanHot ⊑ ∃hasTopping.JalapenoPepperTopping
+Pizza ⊑ ∃hasBase.PizzaBase
+isIngredientOf ⊑ hasIngredient⁻
+hasIngredient ⊑ isIngredientOf⁻
+hasBase ⊑ isBaseOf⁻
+isBaseOf ⊑ hasBase⁻
+domain(hasTopping) = Pizza
+domain(hasIngredient) = Food
+----------------------------------------------------------------------------------------------------
+isBaseOf ⊑ isIngredientOf
+∃hasTopping.⊤ ⊑ Pizza
+AmericanHot ⊑ ∃hasTopping.JalapenoPepperTopping
+Pizza ⊑ ∃hasBase.⊤
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+isBaseOf ⊑ isIngredientOf
+AmericanHot ⊑ ∃hasTopping.⊤
+∃hasTopping.⊤ ⊑ Pizza
+Pizza ⊑ ∃hasBase.⊤
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+isBaseOf ⊑ isIngredientOf
+∃hasIngredient.⊤ ⊑ Food
+∃hasTopping.⊤ ⊑ Pizza
+AmericanHot ⊑ ∃hasTopping.⊤
+----------------------------------------------------------------------------------------------------
+∃hasIngredient.⊤ ⊑ Food
+∃hasTopping.⊤ ⊑ Pizza
+AmericanHot ⊑ ∃hasTopping.⊤
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ Pizza
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------

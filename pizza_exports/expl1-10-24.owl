@@ -1,0 +1,13 @@
+hasTopping ⊑ hasIngredient
+AmericanHot ⊑ ∃hasTopping.JalapenoPepperTopping
+domain(hasIngredient) = Food
+----------------------------------------------------------------------------------------------------
+hasTopping ⊑ hasIngredient
+AmericanHot ⊑ ∃hasTopping.⊤
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ ∃hasIngredient.⊤
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ Food
+----------------------------------------------------------------------------------------------------

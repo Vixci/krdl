@@ -1,0 +1,33 @@
+isBaseOf ⊑ isIngredientOf
+American ⊑ NamedPizza
+NamedPizza ⊑ Pizza
+Pizza ⊑ ∃hasBase.PizzaBase
+isIngredientOf ⊑ hasIngredient⁻
+hasIngredient ⊑ isIngredientOf⁻
+hasBase ⊑ isBaseOf⁻
+isBaseOf ⊑ hasBase⁻
+domain(hasIngredient) = Food
+----------------------------------------------------------------------------------------------------
+isBaseOf ⊑ isIngredientOf
+American ⊑ Pizza
+Pizza ⊑ ∃hasBase.PizzaBase
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+isBaseOf ⊑ isIngredientOf
+Pizza ⊑ ∃hasBase.⊤
+American ⊑ Pizza
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+isBaseOf ⊑ isIngredientOf
+American ⊑ Pizza
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+American ⊑ Pizza
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+American ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------

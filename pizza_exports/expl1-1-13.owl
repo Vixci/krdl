@@ -1,0 +1,16 @@
+hasTopping ⊑ hasIngredient
+Food ⊑ DomainConcept
+American ⊑ ∃hasTopping.TomatoTopping
+domain(hasIngredient) = Food
+----------------------------------------------------------------------------------------------------
+hasTopping ⊑ hasIngredient
+∃hasIngredient.⊤ ⊑ DomainConcept
+American ⊑ ∃hasTopping.TomatoTopping
+----------------------------------------------------------------------------------------------------
+American ⊑ ∃hasIngredient.TomatoTopping
+∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+American ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+American ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------

@@ -1,0 +1,32 @@
+hasBase ⊑ hasIngredient
+NamedPizza ⊑ Pizza
+AmericanHot ⊑ NamedPizza
+Pizza ⊑ ∃hasBase.PizzaBase
+Food ⊑ DomainConcept
+domain(hasIngredient) = Food
+----------------------------------------------------------------------------------------------------
+hasBase ⊑ hasIngredient
+Pizza ⊑ ∃hasBase.PizzaBase
+AmericanHot ⊑ NamedPizza
+∃hasIngredient.⊤ ⊑ DomainConcept
+NamedPizza ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+hasBase ⊑ hasIngredient
+AmericanHot ⊑ Pizza
+Pizza ⊑ ∃hasBase.PizzaBase
+∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+hasBase ⊑ hasIngredient
+Pizza ⊑ ∃hasBase.⊤
+AmericanHot ⊑ Pizza
+∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+Pizza ⊑ ∃hasIngredient.⊤
+AmericanHot ⊑ Pizza
+∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+Pizza ⊑ DomainConcept
+AmericanHot ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------

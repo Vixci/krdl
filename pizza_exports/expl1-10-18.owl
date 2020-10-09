@@ -1,0 +1,21 @@
+isToppingOf ⊑ isIngredientOf
+AmericanHot ⊑ ∃hasTopping.JalapenoPepperTopping
+isToppingOf ⊑ hasTopping⁻
+hasTopping ⊑ isToppingOf⁻
+isIngredientOf ⊑ hasIngredient⁻
+hasIngredient ⊑ isIngredientOf⁻
+domain(hasIngredient) = Food
+----------------------------------------------------------------------------------------------------
+isToppingOf ⊑ isIngredientOf
+AmericanHot ⊑ ∃hasTopping.⊤
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ ∃hasTopping.⊤
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------

@@ -1,0 +1,28 @@
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+American ⊑ NamedPizza
+NamedPizza ⊑ Pizza
+PeperoniSausageTopping ⊑ MeatTopping
+MeatyPizza ≡ (Pizza ⊓ ∃hasTopping.MeatTopping)
+----------------------------------------------------------------------------------------------------
+(Pizza ⊓ ∃hasTopping.MeatTopping) ⊑ MeatyPizza
+PeperoniSausageTopping ⊑ MeatTopping
+American ⊑ Pizza
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+MeatyPizza ⊑ (Pizza ⊓ ∃hasTopping.MeatTopping)
+----------------------------------------------------------------------------------------------------
+MeatyPizza ⊑ Pizza
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+MeatyPizza ⊑ ∃hasTopping.⊤
+(Pizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ MeatyPizza
+American ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+(American ⊓ Pizza) ⊑ MeatyPizza
+MeatyPizza ⊑ Pizza
+American ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+(American ⊓ Pizza) ⊑ MeatyPizza
+MeatyPizza ⊑ Pizza
+American ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+American ⊑ MeatyPizza
+----------------------------------------------------------------------------------------------------

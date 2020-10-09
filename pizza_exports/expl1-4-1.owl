@@ -1,0 +1,21 @@
+PeperoniSausageTopping ⊑ MeatTopping
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+MeatyPizza ≡ (Pizza ⊓ ∃hasTopping.MeatTopping)
+domain(hasTopping) = Pizza
+----------------------------------------------------------------------------------------------------
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+MeatyPizza ⊑ ∃hasTopping.⊤
+∃hasTopping.⊤ ⊑ Pizza
+(Pizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ MeatyPizza
+MeatyPizza ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+MeatyPizza ⊑ Pizza
+(American ⊓ Pizza) ⊑ MeatyPizza
+American ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+MeatyPizza ⊑ Pizza
+(American ⊓ Pizza) ⊑ MeatyPizza
+American ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+American ⊑ MeatyPizza
+----------------------------------------------------------------------------------------------------

@@ -1,0 +1,13 @@
+hasTopping ⊑ hasIngredient
+Capricciosa ⊑ ∃hasTopping.PeperonataTopping
+domain(hasIngredient) = Food
+----------------------------------------------------------------------------------------------------
+hasTopping ⊑ hasIngredient
+Capricciosa ⊑ ∃hasTopping.⊤
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+Capricciosa ⊑ ∃hasIngredient.⊤
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+Capricciosa ⊑ Food
+----------------------------------------------------------------------------------------------------

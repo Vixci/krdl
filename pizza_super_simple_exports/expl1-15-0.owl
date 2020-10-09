@@ -1,0 +1,26 @@
+CheeseTopping ⊑ PizzaTopping
+VegetarianTopping ≡ (PizzaTopping ⊓ (HerbSpiceTopping ⊔ FruitTopping ⊔ VegetableTopping ⊔ CheeseTopping ⊔ SauceTopping ⊔ NutTopping))
+----------------------------------------------------------------------------------------------------
+CheeseTopping ⊑ PizzaTopping
+VegetarianTopping ⊑ PizzaTopping
+(NutTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(FruitTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(HerbSpiceTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(PizzaTopping ⊓ VegetableTopping) ⊑ VegetarianTopping
+(CheeseTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+----------------------------------------------------------------------------------------------------
+(CheeseTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(FruitTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(NutTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+CheeseTopping ⊑ PizzaTopping
+VegetarianTopping ⊑ PizzaTopping
+(PizzaTopping ⊓ VegetableTopping) ⊑ VegetarianTopping
+----------------------------------------------------------------------------------------------------
+CheeseTopping ⊑ VegetarianTopping
+----------------------------------------------------------------------------------------------------
+CheeseTopping ⊑ VegetarianTopping
+----------------------------------------------------------------------------------------------------
+CheeseTopping ⊑ VegetarianTopping
+----------------------------------------------------------------------------------------------------
+CheeseTopping ⊑ VegetarianTopping
+----------------------------------------------------------------------------------------------------

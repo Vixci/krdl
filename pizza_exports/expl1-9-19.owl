@@ -1,0 +1,17 @@
+Food ⊑ DomainConcept
+Pizza ⊑ Food
+AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
+domain(hasTopping) = Pizza
+----------------------------------------------------------------------------------------------------
+Pizza ⊑ DomainConcept
+AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
+∃hasTopping.⊤ ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ Pizza
+Pizza ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ Pizza
+Pizza ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------

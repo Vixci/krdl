@@ -1,0 +1,48 @@
+NamedPizza ⊑ Pizza
+American ⊑ NamedPizza
+PeperoniSausageTopping ⊑ MeatTopping
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+NonVegetarianPizza ≡ (Pizza ⊓ ¬VegetarianPizza)
+VegetarianPizza ≡ (Pizza ⊓ ¬∃hasTopping.FishTopping ⊓ ¬∃hasTopping.MeatTopping)
+----------------------------------------------------------------------------------------------------
+American ⊑ Pizza
+NonVegetarianPizza ⊑ (Pizza ⊓ ¬VegetarianPizza)
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+PeperoniSausageTopping ⊑ MeatTopping
+VegetarianPizza ⊑ (Pizza ⊓ ∀hasTopping.¬FishTopping ⊓ ∀hasTopping.¬MeatTopping)
+Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.FishTopping ⊔ ∃hasTopping.MeatTopping)
+Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
+----------------------------------------------------------------------------------------------------
+VegetarianPizza ⊑ Pizza
+Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+NonVegetarianPizza ⊑ (Pizza ⊓ ¬VegetarianPizza)
+Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤ ⊔ ∃hasTopping.MeatTopping)
+American ⊑ Pizza
+PeperoniSausageTopping ⊑ MeatTopping
+(VegetarianPizza ⊓ ∃hasTopping.MeatTopping) ⊑ ⊥
+----------------------------------------------------------------------------------------------------
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+VegetarianPizza ⊑ Pizza
+Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
+(VegetarianPizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ ⊥
+NonVegetarianPizza ⊑ (Pizza ⊓ ¬VegetarianPizza)
+Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤)
+American ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+(NonVegetarianPizza ⊓ Pizza) ⊑ ∃hasTopping.⊤
+(Pizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ NonVegetarianPizza
+American ⊑ Pizza
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+NonVegetarianPizza ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+(American ⊓ Pizza) ⊑ NonVegetarianPizza
+American ⊑ Pizza
+NonVegetarianPizza ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+(American ⊓ Pizza) ⊑ NonVegetarianPizza
+American ⊑ Pizza
+NonVegetarianPizza ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+American ⊑ NonVegetarianPizza
+----------------------------------------------------------------------------------------------------

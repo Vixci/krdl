@@ -139,7 +139,7 @@ public class ExplainByForgetProvider {
             }
             System.out.println("---------------------------------------------------");
             // TODO(Vixci) remove this line after debugging
-            if (index > 1) break;
+//            if (index > 1) break;
         }
     }
 }
