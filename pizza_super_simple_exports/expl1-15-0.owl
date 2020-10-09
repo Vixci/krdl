@@ -1,26 +1,40 @@
+EXPLAINING SUBSUMPTION: CheeseTopping ⊑ VegetarianTopping
+****************************************************************************************************
 CheeseTopping ⊑ PizzaTopping
 VegetarianTopping ≡ (PizzaTopping ⊓ (HerbSpiceTopping ⊔ FruitTopping ⊔ VegetableTopping ⊔ CheeseTopping ⊔ SauceTopping ⊔ NutTopping))
 ----------------------------------------------------------------------------------------------------
-CheeseTopping ⊑ PizzaTopping
+FORGETTING: SauceTopping, 
+----------------------------------------------------------------------------------------------------
 VegetarianTopping ⊑ PizzaTopping
+CheeseTopping ⊑ PizzaTopping
 (NutTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
-(FruitTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
 (HerbSpiceTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
 (PizzaTopping ⊓ VegetableTopping) ⊑ VegetarianTopping
 (CheeseTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
-----------------------------------------------------------------------------------------------------
-(CheeseTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
 (FruitTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: HerbSpiceTopping, 
+----------------------------------------------------------------------------------------------------
 (NutTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(CheeseTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
 CheeseTopping ⊑ PizzaTopping
-VegetarianTopping ⊑ PizzaTopping
 (PizzaTopping ⊓ VegetableTopping) ⊑ VegetarianTopping
+(FruitTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+VegetarianTopping ⊑ PizzaTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: PizzaTopping, 
 ----------------------------------------------------------------------------------------------------
 CheeseTopping ⊑ VegetarianTopping
 ----------------------------------------------------------------------------------------------------
-CheeseTopping ⊑ VegetarianTopping
+FORGETTING: VegetableTopping, 
 ----------------------------------------------------------------------------------------------------
 CheeseTopping ⊑ VegetarianTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: FruitTopping, 
+----------------------------------------------------------------------------------------------------
+CheeseTopping ⊑ VegetarianTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: NutTopping, 
 ----------------------------------------------------------------------------------------------------
 CheeseTopping ⊑ VegetarianTopping
 ----------------------------------------------------------------------------------------------------

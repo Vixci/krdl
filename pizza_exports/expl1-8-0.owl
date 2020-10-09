@@ -1,26 +1,38 @@
+EXPLAINING SUBSUMPTION: AmericanHot ⊑ CheeseyPizza
+****************************************************************************************************
 MozzarellaTopping ⊑ CheeseTopping
 AmericanHot ⊑ NamedPizza
 AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
 NamedPizza ⊑ Pizza
 CheeseyPizza ≡ (Pizza ⊓ ∃hasTopping.CheeseTopping)
 ----------------------------------------------------------------------------------------------------
-MozzarellaTopping ⊑ CheeseTopping
-AmericanHot ⊑ Pizza
-CheeseyPizza ⊑ (Pizza ⊓ ∃hasTopping.CheeseTopping)
-(Pizza ⊓ ∃hasTopping.CheeseTopping) ⊑ CheeseyPizza
+FORGETTING: NamedPizza, 
+----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
+(Pizza ⊓ ∃hasTopping.CheeseTopping) ⊑ CheeseyPizza
+MozzarellaTopping ⊑ CheeseTopping
+CheeseyPizza ⊑ (Pizza ⊓ ∃hasTopping.CheeseTopping)
+AmericanHot ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: CheeseTopping, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ Pizza
 (Pizza ⊓ ∃hasTopping.MozzarellaTopping) ⊑ CheeseyPizza
-CheeseyPizza ⊑ Pizza
-AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
 CheeseyPizza ⊑ ∃hasTopping.⊤
+AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
+CheeseyPizza ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 (AmericanHot ⊓ Pizza) ⊑ CheeseyPizza
-AmericanHot ⊑ Pizza
 CheeseyPizza ⊑ Pizza
+AmericanHot ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: Pizza, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ CheeseyPizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: MozzarellaTopping, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ CheeseyPizza
 ----------------------------------------------------------------------------------------------------

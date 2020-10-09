@@ -1,3 +1,5 @@
+EXPLAINING SUBSUMPTION: American ⊑ DomainConcept
+****************************************************************************************************
 hasBase ⊑ hasIngredient
 Food ⊑ DomainConcept
 American ⊑ ∃hasTopping.MozzarellaTopping
@@ -5,31 +7,45 @@ Pizza ⊑ ∃hasBase.PizzaBase
 domain(hasTopping) = Pizza
 domain(hasIngredient) = Food
 ----------------------------------------------------------------------------------------------------
+FORGETTING: Food, 
+----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
+∃hasIngredient.⊤ ⊑ DomainConcept
 Pizza ⊑ ∃hasBase.PizzaBase
-∃hasIngredient.⊤ ⊑ DomainConcept
 ∃hasTopping.⊤ ⊑ Pizza
 American ⊑ ∃hasTopping.MozzarellaTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
-∃hasTopping.⊤ ⊑ Pizza
-American ⊑ ∃hasTopping.MozzarellaTopping
 Pizza ⊑ ∃hasBase.⊤
-∃hasIngredient.⊤ ⊑ DomainConcept
-----------------------------------------------------------------------------------------------------
+∃hasTopping.⊤ ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ DomainConcept
 American ⊑ ∃hasTopping.MozzarellaTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasBase, 
+----------------------------------------------------------------------------------------------------
+American ⊑ ∃hasTopping.MozzarellaTopping
+∃hasIngredient.⊤ ⊑ DomainConcept
 Pizza ⊑ ∃hasIngredient.⊤
 ∃hasTopping.⊤ ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ DomainConcept
 Pizza ⊑ ∃hasIngredient.⊤
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------
 Pizza ⊑ DomainConcept
 American ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
+FORGETTING: Pizza, 
+----------------------------------------------------------------------------------------------------
 American ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+FORGETTING: MozzarellaTopping, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------

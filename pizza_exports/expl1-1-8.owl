@@ -1,3 +1,5 @@
+EXPLAINING SUBSUMPTION: American ⊑ DomainConcept
+****************************************************************************************************
 hasBase ⊑ hasIngredient
 Food ⊑ DomainConcept
 American ⊑ ∃hasTopping.PeperoniSausageTopping
@@ -5,33 +7,47 @@ Pizza ⊑ ∃hasBase.PizzaBase
 domain(hasTopping) = Pizza
 domain(hasIngredient) = Food
 ----------------------------------------------------------------------------------------------------
-hasBase ⊑ hasIngredient
-American ⊑ ∃hasTopping.PeperoniSausageTopping
-∃hasTopping.⊤ ⊑ Pizza
-∃hasIngredient.⊤ ⊑ DomainConcept
-Pizza ⊑ ∃hasBase.PizzaBase
+FORGETTING: Food, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
+∃hasIngredient.⊤ ⊑ DomainConcept
 ∃hasTopping.⊤ ⊑ Pizza
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+Pizza ⊑ ∃hasBase.PizzaBase
+----------------------------------------------------------------------------------------------------
+FORGETTING: PizzaBase, 
+----------------------------------------------------------------------------------------------------
+hasBase ⊑ hasIngredient
 American ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
 Pizza ⊑ ∃hasBase.⊤
+∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
-American ⊑ ∃hasTopping.PeperoniSausageTopping
+FORGETTING: hasBase, 
+----------------------------------------------------------------------------------------------------
 ∃hasTopping.⊤ ⊑ Pizza
 Pizza ⊑ ∃hasIngredient.⊤
+American ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ Pizza
 Pizza ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
+FORGETTING: PeperoniSausageTopping, 
+----------------------------------------------------------------------------------------------------
 American ⊑ Pizza
 Pizza ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------
 Pizza ⊑ DomainConcept
 American ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: Pizza, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------

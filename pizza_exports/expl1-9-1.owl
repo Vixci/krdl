@@ -1,17 +1,27 @@
+EXPLAINING SUBSUMPTION: AmericanHot ⊑ DomainConcept
+****************************************************************************************************
 hasTopping ⊑ hasIngredient
 Food ⊑ DomainConcept
 AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 domain(hasIngredient) = Food
 ----------------------------------------------------------------------------------------------------
+FORGETTING: Food, 
+----------------------------------------------------------------------------------------------------
 hasTopping ⊑ hasIngredient
 ∃hasIngredient.⊤ ⊑ DomainConcept
 AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 ----------------------------------------------------------------------------------------------------
+FORGETTING: hasTopping, 
+----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ ∃hasIngredient.PeperoniSausageTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
+FORGETTING: PeperoniSausageTopping, 
+----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------

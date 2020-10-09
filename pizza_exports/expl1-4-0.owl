@@ -1,28 +1,40 @@
+EXPLAINING SUBSUMPTION: American ⊑ MeatyPizza
+****************************************************************************************************
+NamedPizza ⊑ Pizza
 American ⊑ ∃hasTopping.PeperoniSausageTopping
 American ⊑ NamedPizza
-NamedPizza ⊑ Pizza
 PeperoniSausageTopping ⊑ MeatTopping
 MeatyPizza ≡ (Pizza ⊓ ∃hasTopping.MeatTopping)
 ----------------------------------------------------------------------------------------------------
-(Pizza ⊓ ∃hasTopping.MeatTopping) ⊑ MeatyPizza
-PeperoniSausageTopping ⊑ MeatTopping
-American ⊑ Pizza
-American ⊑ ∃hasTopping.PeperoniSausageTopping
-MeatyPizza ⊑ (Pizza ⊓ ∃hasTopping.MeatTopping)
+FORGETTING: NamedPizza, 
 ----------------------------------------------------------------------------------------------------
-MeatyPizza ⊑ Pizza
+MeatyPizza ⊑ (Pizza ⊓ ∃hasTopping.MeatTopping)
+(Pizza ⊓ ∃hasTopping.MeatTopping) ⊑ MeatyPizza
 American ⊑ ∃hasTopping.PeperoniSausageTopping
-MeatyPizza ⊑ ∃hasTopping.⊤
+American ⊑ Pizza
+PeperoniSausageTopping ⊑ MeatTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: MeatTopping, 
+----------------------------------------------------------------------------------------------------
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+MeatyPizza ⊑ Pizza
 (Pizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ MeatyPizza
 American ⊑ Pizza
+MeatyPizza ⊑ ∃hasTopping.⊤
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 (American ⊓ Pizza) ⊑ MeatyPizza
 MeatyPizza ⊑ Pizza
 American ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
+FORGETTING: PeperoniSausageTopping, 
+----------------------------------------------------------------------------------------------------
 (American ⊓ Pizza) ⊑ MeatyPizza
 MeatyPizza ⊑ Pizza
 American ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: Pizza, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ MeatyPizza
 ----------------------------------------------------------------------------------------------------

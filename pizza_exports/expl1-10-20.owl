@@ -1,30 +1,44 @@
+EXPLAINING SUBSUMPTION: AmericanHot ⊑ Food
+****************************************************************************************************
 hasBase ⊑ hasIngredient
 AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 Pizza ⊑ ∃hasBase.PizzaBase
 domain(hasTopping) = Pizza
 domain(hasIngredient) = Food
 ----------------------------------------------------------------------------------------------------
+FORGETTING: PizzaBase, 
+----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
 Pizza ⊑ ∃hasBase.⊤
+∃hasIngredient.⊤ ⊑ Food
+AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasTopping.⊤ ⊑ Pizza
-∃hasIngredient.⊤ ⊑ Food
-AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 ----------------------------------------------------------------------------------------------------
-AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
+FORGETTING: hasBase, 
+----------------------------------------------------------------------------------------------------
 ∃hasIngredient.⊤ ⊑ Food
+AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 Pizza ⊑ ∃hasIngredient.⊤
 ∃hasTopping.⊤ ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ Food
 Pizza ⊑ ∃hasIngredient.⊤
 ----------------------------------------------------------------------------------------------------
+FORGETTING: PeperoniSausageTopping, 
+----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ Food
 Pizza ⊑ ∃hasIngredient.⊤
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------
 Pizza ⊑ Food
 AmericanHot ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: Pizza, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ Food
 ----------------------------------------------------------------------------------------------------

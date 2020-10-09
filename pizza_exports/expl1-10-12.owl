@@ -1,3 +1,5 @@
+EXPLAINING SUBSUMPTION: AmericanHot ⊑ Food
+****************************************************************************************************
 isBaseOf ⊑ isIngredientOf
 AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
 Pizza ⊑ ∃hasBase.PizzaBase
@@ -8,30 +10,46 @@ isBaseOf ⊑ hasBase⁻
 domain(hasTopping) = Pizza
 domain(hasIngredient) = Food
 ----------------------------------------------------------------------------------------------------
+FORGETTING: PizzaBase, 
+----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
-AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
-∃hasIngredient.⊤ ⊑ Food
 ∃hasTopping.⊤ ⊑ Pizza
+AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
 Pizza ⊑ ∃hasBase.⊤
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
+AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
 ∃hasIngredient.⊤ ⊑ Food
 ∃hasTopping.⊤ ⊑ Pizza
-AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
 ----------------------------------------------------------------------------------------------------
+FORGETTING: isIngredientOf, 
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
 ∃hasIngredient.⊤ ⊑ Food
 ∃hasTopping.⊤ ⊑ Pizza
-AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ Food
 ----------------------------------------------------------------------------------------------------
+FORGETTING: HotGreenPepperTopping, 
+----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ Food
 ----------------------------------------------------------------------------------------------------
+FORGETTING: hasIngredient, 
+----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: Pizza, 
 ----------------------------------------------------------------------------------------------------
 
+----------------------------------------------------------------------------------------------------
+FORGETTING: isBaseOf, 
 ----------------------------------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------------------------------

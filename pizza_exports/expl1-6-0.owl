@@ -1,48 +1,64 @@
+EXPLAINING SUBSUMPTION: American ⊑ NonVegetarianPizza
+****************************************************************************************************
 NamedPizza ⊑ Pizza
-American ⊑ NamedPizza
-PeperoniSausageTopping ⊑ MeatTopping
 American ⊑ ∃hasTopping.PeperoniSausageTopping
+PeperoniSausageTopping ⊑ MeatTopping
+American ⊑ NamedPizza
 NonVegetarianPizza ≡ (Pizza ⊓ ¬VegetarianPizza)
 VegetarianPizza ≡ (Pizza ⊓ ¬∃hasTopping.FishTopping ⊓ ¬∃hasTopping.MeatTopping)
 ----------------------------------------------------------------------------------------------------
-American ⊑ Pizza
-NonVegetarianPizza ⊑ (Pizza ⊓ ¬VegetarianPizza)
-American ⊑ ∃hasTopping.PeperoniSausageTopping
-PeperoniSausageTopping ⊑ MeatTopping
+FORGETTING: NamedPizza, 
+----------------------------------------------------------------------------------------------------
 VegetarianPizza ⊑ (Pizza ⊓ ∀hasTopping.¬FishTopping ⊓ ∀hasTopping.¬MeatTopping)
-Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.FishTopping ⊔ ∃hasTopping.MeatTopping)
-Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
-----------------------------------------------------------------------------------------------------
-VegetarianPizza ⊑ Pizza
-Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
-American ⊑ ∃hasTopping.PeperoniSausageTopping
-NonVegetarianPizza ⊑ (Pizza ⊓ ¬VegetarianPizza)
-Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤ ⊔ ∃hasTopping.MeatTopping)
-American ⊑ Pizza
 PeperoniSausageTopping ⊑ MeatTopping
-(VegetarianPizza ⊓ ∃hasTopping.MeatTopping) ⊑ ⊥
-----------------------------------------------------------------------------------------------------
-American ⊑ ∃hasTopping.PeperoniSausageTopping
-VegetarianPizza ⊑ Pizza
-Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
-(VegetarianPizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ ⊥
+American ⊑ Pizza
 NonVegetarianPizza ⊑ (Pizza ⊓ ¬VegetarianPizza)
-Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤)
-American ⊑ Pizza
-----------------------------------------------------------------------------------------------------
-(NonVegetarianPizza ⊓ Pizza) ⊑ ∃hasTopping.⊤
-(Pizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ NonVegetarianPizza
-American ⊑ Pizza
+Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.FishTopping ⊔ ∃hasTopping.MeatTopping)
 American ⊑ ∃hasTopping.PeperoniSausageTopping
+Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
+----------------------------------------------------------------------------------------------------
+FORGETTING: FishTopping, 
+----------------------------------------------------------------------------------------------------
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+(VegetarianPizza ⊓ ∃hasTopping.MeatTopping) ⊑ ⊥
+Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
+PeperoniSausageTopping ⊑ MeatTopping
+Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤ ⊔ ∃hasTopping.MeatTopping)
+VegetarianPizza ⊑ Pizza
+American ⊑ Pizza
+NonVegetarianPizza ⊑ (Pizza ⊓ ¬VegetarianPizza)
+----------------------------------------------------------------------------------------------------
+FORGETTING: MeatTopping, 
+----------------------------------------------------------------------------------------------------
+Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤)
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+NonVegetarianPizza ⊑ (Pizza ⊓ ¬VegetarianPizza)
+Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
+American ⊑ Pizza
+(VegetarianPizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ ⊥
+VegetarianPizza ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: VegetarianPizza, 
+----------------------------------------------------------------------------------------------------
 NonVegetarianPizza ⊑ Pizza
+American ⊑ Pizza
+(Pizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ NonVegetarianPizza
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+(NonVegetarianPizza ⊓ Pizza) ⊑ ∃hasTopping.⊤
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 (American ⊓ Pizza) ⊑ NonVegetarianPizza
-American ⊑ Pizza
 NonVegetarianPizza ⊑ Pizza
+American ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: PeperoniSausageTopping, 
 ----------------------------------------------------------------------------------------------------
 (American ⊓ Pizza) ⊑ NonVegetarianPizza
-American ⊑ Pizza
 NonVegetarianPizza ⊑ Pizza
+American ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: Pizza, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ NonVegetarianPizza
 ----------------------------------------------------------------------------------------------------

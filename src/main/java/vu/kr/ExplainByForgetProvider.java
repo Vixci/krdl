@@ -15,7 +15,9 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
 public class ExplainByForgetProvider {
@@ -82,14 +84,24 @@ public class ExplainByForgetProvider {
         for(Path justificationFilePath : justificationFilePaths) {
             File explanationsFile = getExplanationsExportFile(justificationFilePath);
             OntologyInspector justificationInspector = new OntologyInspector(justificationFilePath.toString());
-            // Create the explanation export file and put the initial justifications in
-            exportToExplanations(explanationsFile, false, SimpleOWLFormatter.format(justificationInspector.getOntology()));
+            // Create the explanation export file and put the subsumption whose justification is explained
+            exportToExplanations(explanationsFile, false, "EXPLAINING SUBSUMPTION: " + SimpleOWLFormatter.format(subsumption));
+            // Export the initial justifications in
+            exportToExplanations(explanationsFile, true, SimpleOWLFormatter.format(justificationInspector.getOntology()));
             Set<OWLEntity> toBeForgotten = justificationInspector.getAllEntities();
             toBeForgotten.removeAll(subsumption.signature().collect(Collectors.toSet()));
             System.out.println("Initial entities to forget: " + toBeForgotten);
             List<Set<OWLEntity>> strategy = getStrategy(toBeForgotten);
             for (Set<OWLEntity> batch : strategy) {
                 OWLOntology newOntology = forgetter.forget(justificationInspector.getOntology(), batch);
+                System.out.println(batch);
+                Optional<String> batchString = batch.stream()
+                        .map(e -> e.toString())
+                        .map(e -> e.lastIndexOf("#") == -1? e: e.substring(e.lastIndexOf('#')+1, e.length() - 1) + ", ")
+                        .reduce(String::concat);
+                if (batchString.isPresent()) {
+                    exportToExplanations(explanationsFile, true, "FORGETTING: " + batchString.orElse("Nothing to forget"));
+                }
                 justificationInspector.setOntology(newOntology);
                 exportToExplanations(explanationsFile, true, SimpleOWLFormatter.format(newOntology));
             }
@@ -100,10 +112,11 @@ public class ExplainByForgetProvider {
         String fileName = justificationsFilePath.getFileName().toString().replace("justif", "expl" + forgettingStrategy);
         return new File(justificationsDirPath + File.separator + fileName);
     }
+
     private void exportToExplanations(File explanationFile, boolean append, String partial) throws IOException {
         FileOutputStream fos = new FileOutputStream(explanationFile, append);
         fos.write(partial.getBytes());
-        fos.write(("\n" + "-".repeat(100) + "\n").getBytes());
+        fos.write(("\n" + (append?"-":"*").repeat(100) + "\n").getBytes());
     }
 
     /**

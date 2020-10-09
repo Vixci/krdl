@@ -1,19 +1,29 @@
+EXPLAINING SUBSUMPTION: AmericanHot ⊑ CheeseyPizza
+****************************************************************************************************
 MozzarellaTopping ⊑ CheeseTopping
 AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
 CheeseyPizza ≡ (Pizza ⊓ ∃hasTopping.CheeseTopping)
 domain(hasTopping) = Pizza
 ----------------------------------------------------------------------------------------------------
-(Pizza ⊓ ∃hasTopping.MozzarellaTopping) ⊑ CheeseyPizza
+FORGETTING: CheeseTopping, 
+----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
 CheeseyPizza ⊑ Pizza
-CheeseyPizza ⊑ ∃hasTopping.⊤
 ∃hasTopping.⊤ ⊑ Pizza
+(Pizza ⊓ ∃hasTopping.MozzarellaTopping) ⊑ CheeseyPizza
+CheeseyPizza ⊑ ∃hasTopping.⊤
 ----------------------------------------------------------------------------------------------------
-AmericanHot ⊑ Pizza
+FORGETTING: hasTopping, 
+----------------------------------------------------------------------------------------------------
 CheeseyPizza ⊑ Pizza
 (AmericanHot ⊓ Pizza) ⊑ CheeseyPizza
+AmericanHot ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: Pizza, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ CheeseyPizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: MozzarellaTopping, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ CheeseyPizza
 ----------------------------------------------------------------------------------------------------

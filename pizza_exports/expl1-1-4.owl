@@ -1,32 +1,46 @@
+EXPLAINING SUBSUMPTION: American ⊑ DomainConcept
+****************************************************************************************************
 hasBase ⊑ hasIngredient
-NamedPizza ⊑ Pizza
 American ⊑ NamedPizza
-Pizza ⊑ ∃hasBase.PizzaBase
 Food ⊑ DomainConcept
+Pizza ⊑ ∃hasBase.PizzaBase
+NamedPizza ⊑ Pizza
 domain(hasIngredient) = Food
 ----------------------------------------------------------------------------------------------------
+FORGETTING: Food, 
+----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
-∃hasIngredient.⊤ ⊑ DomainConcept
-American ⊑ NamedPizza
 NamedPizza ⊑ Pizza
+American ⊑ NamedPizza
 Pizza ⊑ ∃hasBase.PizzaBase
+∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+FORGETTING: NamedPizza, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
 American ⊑ Pizza
-Pizza ⊑ ∃hasBase.PizzaBase
 ∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasBase.PizzaBase
+----------------------------------------------------------------------------------------------------
+FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
 Pizza ⊑ ∃hasBase.⊤
 American ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
+FORGETTING: hasBase, 
+----------------------------------------------------------------------------------------------------
 Pizza ⊑ ∃hasIngredient.⊤
 American ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
+FORGETTING: hasIngredient, 
+----------------------------------------------------------------------------------------------------
 Pizza ⊑ DomainConcept
 American ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: Pizza, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
