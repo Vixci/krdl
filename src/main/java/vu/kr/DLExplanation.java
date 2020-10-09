@@ -35,8 +35,10 @@ public class DLExplanation {
                 OntologyInspector subsumptionsInspector = new OntologyInspector(
                         ontologyInspector.getOntologyExportPath()
                         + File.separator + "/subclasses.nt");
+                int forgettingStrategy = 1;
                 ExplainByForgetProvider forgetProvider = new ExplainByForgetProvider(
-                        forgettingMethod, subsumptionsInspector, ontologyInspector.getOntologyExportPath());
+                        forgettingMethod, forgettingStrategy, subsumptionsInspector,
+                        ontologyInspector.getOntologyExportPath());
                 forgetProvider.explainAllByForgetting();
                 break;
         }
