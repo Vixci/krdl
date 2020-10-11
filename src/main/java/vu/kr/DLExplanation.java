@@ -31,14 +31,14 @@ public class DLExplanation {
                 }
                 break;
             case 3:
-                int forgettingMethod = Integer.parseInt(args[1]);
+                int forgettingMethod = Integer.parseInt(args[2]);
                 OntologyInspector subsumptionsInspector = new OntologyInspector(
                         ontologyInspector.getOntologyExportPath()
                         + File.separator + "/subclasses.nt");
                 int forgettingStrategy = 1;
                 ExplainByForgetProvider forgetProvider = new ExplainByForgetProvider(
                         forgettingMethod, forgettingStrategy, subsumptionsInspector,
-                        ontologyInspector.getOntologyExportPath());
+                        ontologyInspector.getOntologyExportPath(), ontologyInspector.getOntologyName());
                 forgetProvider.explainAllByForgetting();
                 break;
         }

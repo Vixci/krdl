@@ -24,13 +24,14 @@ import java.util.stream.Stream;
 public class OntologyInspector {
     private String ontologyExportPath;
     private OWLOntology ontology;
-//    private Map<OWLSubClassOfAxiom, Set<Set<OWLAxiom>>> allJustifications;
+    private String ontologyName;
 
     public OntologyInspector(String ontologyFile) {
         File file = new File(ontologyFile);
+        this.ontologyName = file.getName().split("\\.")[0];
         ontologyExportPath = calculateExportPath(
                 file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf(File.separator)),
-                file.getName().split("\\.")[0]);
+                ontologyName);
         setOntology(loadOntologyFromPath(ontologyFile));
     }
     public OntologyInspector(OWLOntology ontology) {
@@ -254,4 +255,6 @@ public class OntologyInspector {
     public String getOntologyExportPath() {
         return ontologyExportPath;
     }
+
+    public String getOntologyName() {  return ontologyName; }
 }

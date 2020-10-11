@@ -25,14 +25,19 @@ public class ExplainByForgetProvider {
     private OntologyInspector subsumptionsInspector;
     private String justificationsDirPath;
     private int forgettingStrategy;
+    private String ontologyName;
+    private Metrics metrics;
 
     public ExplainByForgetProvider(int forgettingMethod,
                                    int forgettingStrategy,
                                    OntologyInspector subsumptionsInspector,
-                                   String justificationsDirPath) {
+                                   String justificationsDirPath,
+                                   String ontologyName) {
         this.subsumptionsInspector = subsumptionsInspector;
         this.justificationsDirPath = justificationsDirPath;
         this.forgettingStrategy = forgettingStrategy;
+        this.metrics = new Metrics(justificationsDirPath);
+        this.ontologyName = ontologyName;
 
         switch (forgettingMethod) {
             case 1:
@@ -80,6 +85,7 @@ public class ExplainByForgetProvider {
             System.err.println("Error locating justifications for subsumption #" + index + ": " + subsumption);
             return;
         }
+        Set<OWLEntity> entitiesInSubsumption = subsumption.signature().collect(Collectors.toSet());
 
         for(Path justificationFilePath : justificationFilePaths) {
             File explanationsFile = getExplanationsExportFile(justificationFilePath);
@@ -89,9 +95,12 @@ public class ExplainByForgetProvider {
             // Export the initial justifications in
             exportToExplanations(explanationsFile, true, SimpleOWLFormatter.format(justificationInspector.getOntology()));
             Set<OWLEntity> toBeForgotten = justificationInspector.getAllEntities();
-            toBeForgotten.removeAll(subsumption.signature().collect(Collectors.toSet()));
+            int initialJustificationAxiomCount = justificationInspector.getOntology().getAxiomCount();
+            toBeForgotten.removeAll(entitiesInSubsumption);
             System.out.println("Initial entities to forget: " + toBeForgotten);
             List<Set<OWLEntity>> strategy = getStrategy(toBeForgotten);
+            boolean succesfulExplanation = false;
+            int actualForgettingStepsDelta =  strategy.size();
             for (Set<OWLEntity> batch : strategy) {
                 OWLOntology newOntology = forgetter.forget(justificationInspector.getOntology(), batch);
                 System.out.println(batch);
@@ -102,9 +111,24 @@ public class ExplainByForgetProvider {
                 if (batchString.isPresent()) {
                     exportToExplanations(explanationsFile, true, "FORGETTING: " + batchString.orElse("Nothing to forget"));
                 }
+
                 justificationInspector.setOntology(newOntology);
                 exportToExplanations(explanationsFile, true, SimpleOWLFormatter.format(newOntology));
+                if (newOntology.getAxiomCount() == 1
+                        && justificationInspector.getOntology().containsAxiom(subsumption)) {
+                    succesfulExplanation = true;
+                } else {
+                    actualForgettingStepsDelta --;
+                }
             }
+            metrics.writeRow(ontologyName,
+                    forgetter.getClass().getSimpleName(),
+                    forgettingStrategy,
+                    index,
+                    entitiesInSubsumption.size(),
+                    initialJustificationAxiomCount,
+                    strategy.size(),
+                    succesfulExplanation);
         }
     }
 
@@ -139,6 +163,12 @@ public class ExplainByForgetProvider {
      * Explains all the subsumptions' justifications using forgetting.
      */
     public void explainAllByForgetting() {
+        try {
+            metrics.writeHeader();
+        } catch (IOException e) {
+            System.err.println("Error exporting metrics header.");
+            e.printStackTrace();
+        }
         List<OWLSubClassOfAxiom> subsumptions = subsumptionsInspector.getDirectSubsumptions();
         int index = 0;
         for (OWLSubClassOfAxiom subsumption : subsumptions) {
@@ -146,13 +176,14 @@ public class ExplainByForgetProvider {
             try {
                 explainByForgetting(subsumption, index++);
             } catch (IOException e) {
-                System.err.println("Subsumption #" + (index - 1) + " explanation failed. Attemting next subsumption..." );
+                System.err.println("Subsumption #" + (index - 1) + " explanation failed. Attempting next subsumption..." );
                 e.printStackTrace();
                 break;
             }
             System.out.println("---------------------------------------------------");
             // TODO(Vixci) remove this line after debugging
-//            if (index > 1) break;
+            if (index > 10) break;
         }
+        metrics.close();
     }
 }

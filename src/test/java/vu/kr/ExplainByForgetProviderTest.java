@@ -12,8 +12,8 @@ class ExplainByForgetProviderTest {
 
     @BeforeEach
     void setUp() {
-        ontologyInspector = new OntologyInspector("pizza.owl");
-        forgetProvider = new ExplainByForgetProvider(2, 1, ontologyInspector, "");
+        ontologyInspector = new OntologyInspector("dummy.owl");
+        forgetProvider = new ExplainByForgetProvider(2, 1, ontologyInspector, "", "dummy");
     }
 
     @Test
