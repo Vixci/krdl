@@ -25,11 +25,13 @@ public class Metrics {
     private PrintWriter pw = null;
 
 
-    public Metrics(String directory) {
-       csvOutputFile = new File(directory + File.separator + "metrics.csv");
+    public Metrics(String directory, int forgettingStrategy) {
+       csvOutputFile = new File(directory + File.separator
+               + "metrics"+forgettingStrategy+".csv");
     }
 
     public void writeHeader() throws IOException {
+        csvOutputFile.createNewFile();
         pw = new PrintWriter(csvOutputFile);
         writeRow(CSV_HEADER);
         pw.flush();

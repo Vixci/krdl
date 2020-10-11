@@ -1,0 +1,55 @@
+EXPLAINING SUBSUMPTION: American ⊑ NonVegetarianPizza
+****************************************************************************************************
+PeperoniSausageTopping ⊑ MeatTopping
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+NonVegetarianPizza ≡ (Pizza ⊓ ¬VegetarianPizza)
+VegetarianPizza ≡ (Pizza ⊓ ¬∃hasTopping.FishTopping ⊓ ¬∃hasTopping.MeatTopping)
+domain(hasTopping) = Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: FishTopping, 
+----------------------------------------------------------------------------------------------------
+Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
+NonVegetarianPizza ⊑ Pizza
+∃hasTopping.⊤ ⊑ Pizza
+PeperoniSausageTopping ⊑ MeatTopping
+VegetarianPizza ⊑ Pizza
+(NonVegetarianPizza ⊓ VegetarianPizza) ⊑ ⊥
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤ ⊔ ∃hasTopping.MeatTopping)
+(VegetarianPizza ⊓ ∃hasTopping.MeatTopping) ⊑ ⊥
+----------------------------------------------------------------------------------------------------
+FORGETTING: MeatTopping, 
+----------------------------------------------------------------------------------------------------
+(NonVegetarianPizza ⊓ VegetarianPizza) ⊑ ⊥
+NonVegetarianPizza ⊑ Pizza
+(VegetarianPizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ ⊥
+Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤)
+VegetarianPizza ⊑ Pizza
+∃hasTopping.⊤ ⊑ Pizza
+Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: VegetarianPizza, 
+----------------------------------------------------------------------------------------------------
+NonVegetarianPizza ⊑ Pizza
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+∃hasTopping.⊤ ⊑ Pizza
+(NonVegetarianPizza ⊓ Pizza) ⊑ ∃hasTopping.⊤
+(Pizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ NonVegetarianPizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasTopping, 
+----------------------------------------------------------------------------------------------------
+American ⊑ Pizza
+(American ⊓ Pizza) ⊑ NonVegetarianPizza
+NonVegetarianPizza ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: PeperoniSausageTopping, 
+----------------------------------------------------------------------------------------------------
+American ⊑ Pizza
+(American ⊓ Pizza) ⊑ NonVegetarianPizza
+NonVegetarianPizza ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: Pizza, 
+----------------------------------------------------------------------------------------------------
+American ⊑ NonVegetarianPizza
+----------------------------------------------------------------------------------------------------

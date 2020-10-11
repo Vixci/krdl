@@ -1,0 +1,380 @@
+EXPLAINING SUBSUMPTION: American ⊑ InterestingPizza
+****************************************************************************************************
+⊤ ⊑ ⩽1hasSpiciness.⊤
+TomatoTopping ⊑ VegetableTopping
+American ⊑ NamedPizza
+MozzarellaTopping ⊑ ∃hasSpiciness.Mild
+American ⊑ ∃hasTopping.TomatoTopping
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+TomatoTopping ⊑ ∃hasSpiciness.Mild
+PeperoniSausageTopping ⊑ ∃hasSpiciness.Medium
+American ⊑ ∃hasTopping.MozzarellaTopping
+NamedPizza ⊑ Pizza
+MozzarellaTopping ⊑ CheeseTopping
+disjoint(Medium, Mild, Hot)
+disjoint(NutTopping, SauceTopping, HerbSpiceTopping, CheeseTopping, VegetableTopping, MeatTopping, FruitTopping, FishTopping)
+InterestingPizza ≡ (Pizza ⊓ ⩾3hasTopping.⊤)
+----------------------------------------------------------------------------------------------------
+FORGETTING: Hot, 
+----------------------------------------------------------------------------------------------------
+MozzarellaTopping ⊑ CheeseTopping
+(CheeseTopping ⊓ MeatTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ SauceTopping) ⊑ ⊥
+NamedPizza ⊑ Pizza
+American ⊑ NamedPizza
+American ⊑ ∃hasTopping.TomatoTopping
+(CheeseTopping ⊓ NutTopping) ⊑ ⊥
+(NutTopping ⊓ SauceTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
+(FishTopping ⊓ FruitTopping) ⊑ ⊥
+TomatoTopping ⊑ ∃hasSpiciness.Mild
+(FruitTopping ⊓ MeatTopping) ⊑ ⊥
+(SauceTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
+PeperoniSausageTopping ⊑ ∃hasSpiciness.Medium
+(FishTopping ⊓ MeatTopping) ⊑ ⊥
+TomatoTopping ⊑ VegetableTopping
+(MeatTopping ⊓ SauceTopping) ⊑ ⊥
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+American ⊑ ∃hasTopping.MozzarellaTopping
+(MeatTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+(FruitTopping ⊓ SauceTopping) ⊑ ⊥
+MozzarellaTopping ⊑ ∃hasSpiciness.Mild
+(Medium ⊓ Mild) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ NutTopping) ⊑ ⊥
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ MeatTopping) ⊑ ⊥
+(FruitTopping ⊓ NutTopping) ⊑ ⊥
+(FruitTopping ⊓ VegetableTopping) ⊑ ⊥
+(FruitTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(CheeseTopping ⊓ SauceTopping) ⊑ ⊥
+(FishTopping ⊓ SauceTopping) ⊑ ⊥
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
+(MeatTopping ⊓ NutTopping) ⊑ ⊥
+----------------------------------------------------------------------------------------------------
+FORGETTING: NamedPizza, 
+----------------------------------------------------------------------------------------------------
+TomatoTopping ⊑ VegetableTopping
+MozzarellaTopping ⊑ CheeseTopping
+MozzarellaTopping ⊑ ∃hasSpiciness.Mild
+(MeatTopping ⊓ SauceTopping) ⊑ ⊥
+(MeatTopping ⊓ NutTopping) ⊑ ⊥
+(FruitTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ FruitTopping) ⊑ ⊥
+(FishTopping ⊓ MeatTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ SauceTopping) ⊑ ⊥
+PeperoniSausageTopping ⊑ ∃hasSpiciness.Medium
+American ⊑ ∃hasTopping.TomatoTopping
+(CheeseTopping ⊓ SauceTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.MozzarellaTopping
+(Medium ⊓ Mild) ⊑ ⊥
+(FishTopping ⊓ NutTopping) ⊑ ⊥
+(CheeseTopping ⊓ NutTopping) ⊑ ⊥
+American ⊑ Pizza
+(SauceTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ MeatTopping) ⊑ ⊥
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+(FruitTopping ⊓ NutTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(FishTopping ⊓ SauceTopping) ⊑ ⊥
+(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ MeatTopping) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+TomatoTopping ⊑ ∃hasSpiciness.Mild
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
+(MeatTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+(NutTopping ⊓ SauceTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(FruitTopping ⊓ MeatTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
+(FruitTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(FruitTopping ⊓ SauceTopping) ⊑ ⊥
+----------------------------------------------------------------------------------------------------
+FORGETTING: SauceTopping, 
+----------------------------------------------------------------------------------------------------
+(MeatTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.TomatoTopping
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ NutTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ MeatTopping) ⊑ ⊥
+TomatoTopping ⊑ ∃hasSpiciness.Mild
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
+(FruitTopping ⊓ MeatTopping) ⊑ ⊥
+PeperoniSausageTopping ⊑ ∃hasSpiciness.Medium
+(Medium ⊓ Mild) ⊑ ⊥
+(FishTopping ⊓ MeatTopping) ⊑ ⊥
+(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
+TomatoTopping ⊑ VegetableTopping
+(FruitTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(CheeseTopping ⊓ MeatTopping) ⊑ ⊥
+(FruitTopping ⊓ NutTopping) ⊑ ⊥
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ NutTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.MozzarellaTopping
+American ⊑ Pizza
+(FruitTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(MeatTopping ⊓ NutTopping) ⊑ ⊥
+MozzarellaTopping ⊑ CheeseTopping
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
+(FishTopping ⊓ FruitTopping) ⊑ ⊥
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+MozzarellaTopping ⊑ ∃hasSpiciness.Mild
+----------------------------------------------------------------------------------------------------
+FORGETTING: owl:Thing
+----------------------------------------------------------------------------------------------------
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
+(FruitTopping ⊓ MeatTopping) ⊑ ⊥
+MozzarellaTopping ⊑ ∃hasSpiciness.Mild
+American ⊑ ∃hasTopping.MozzarellaTopping
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ Pizza
+PeperoniSausageTopping ⊑ ∃hasSpiciness.Medium
+(MeatTopping ⊓ NutTopping) ⊑ ⊥
+MozzarellaTopping ⊑ CheeseTopping
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+(MeatTopping ⊓ VegetableTopping) ⊑ ⊥
+(FruitTopping ⊓ NutTopping) ⊑ ⊥
+TomatoTopping ⊑ VegetableTopping
+(FruitTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+(CheeseTopping ⊓ MeatTopping) ⊑ ⊥
+(FishTopping ⊓ NutTopping) ⊑ ⊥
+(CheeseTopping ⊓ NutTopping) ⊑ ⊥
+(FishTopping ⊓ MeatTopping) ⊑ ⊥
+(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.TomatoTopping
+(FruitTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+TomatoTopping ⊑ ∃hasSpiciness.Mild
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
+(Medium ⊓ Mild) ⊑ ⊥
+(FishTopping ⊓ FruitTopping) ⊑ ⊥
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ MeatTopping) ⊑ ⊥
+----------------------------------------------------------------------------------------------------
+FORGETTING: MeatTopping, 
+----------------------------------------------------------------------------------------------------
+(FruitTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+MozzarellaTopping ⊑ ∃hasSpiciness.Mild
+American ⊑ ∃hasTopping.MozzarellaTopping
+(FruitTopping ⊓ NutTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+PeperoniSausageTopping ⊑ ∃hasSpiciness.Medium
+TomatoTopping ⊑ VegetableTopping
+(FruitTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+American ⊑ Pizza
+American ⊑ ∃hasTopping.TomatoTopping
+MozzarellaTopping ⊑ CheeseTopping
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+(FishTopping ⊓ NutTopping) ⊑ ⊥
+(Medium ⊓ Mild) ⊑ ⊥
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
+TomatoTopping ⊑ ∃hasSpiciness.Mild
+(FishTopping ⊓ FruitTopping) ⊑ ⊥
+(CheeseTopping ⊓ NutTopping) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
+----------------------------------------------------------------------------------------------------
+FORGETTING: Medium, 
+----------------------------------------------------------------------------------------------------
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ FruitTopping) ⊑ ⊥
+TomatoTopping ⊑ ∃hasSpiciness.Mild
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(FishTopping ⊓ NutTopping) ⊑ ⊥
+American ⊑ Pizza
+(FruitTopping ⊓ NutTopping) ⊑ ⊥
+(CheeseTopping ⊓ NutTopping) ⊑ ⊥
+(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
+(PeperoniSausageTopping ⊓ ∀hasSpiciness.Mild) ⊑ ⊥
+American ⊑ ∃hasTopping.MozzarellaTopping
+American ⊑ ∃hasTopping.TomatoTopping
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+MozzarellaTopping ⊑ CheeseTopping
+(FruitTopping ⊓ VegetableTopping) ⊑ ⊥
+MozzarellaTopping ⊑ ∃hasSpiciness.Mild
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+TomatoTopping ⊑ VegetableTopping
+(FruitTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+----------------------------------------------------------------------------------------------------
+FORGETTING: Mild, 
+----------------------------------------------------------------------------------------------------
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+(CheeseTopping ⊓ NutTopping) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.TomatoTopping
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
+MozzarellaTopping ⊑ CheeseTopping
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ FruitTopping) ⊑ ⊥
+TomatoTopping ⊑ ∃hasSpiciness.⊤
+American ⊑ ∃hasTopping.MozzarellaTopping
+(FruitTopping ⊓ NutTopping) ⊑ ⊥
+MozzarellaTopping ⊑ ∃hasSpiciness.⊤
+PeperoniSausageTopping ⊑ ∃hasSpiciness.⊤
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+American ⊑ Pizza
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+TomatoTopping ⊑ VegetableTopping
+(FruitTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(FishTopping ⊓ NutTopping) ⊑ ⊥
+(FruitTopping ⊓ VegetableTopping) ⊑ ⊥
+----------------------------------------------------------------------------------------------------
+FORGETTING: FruitTopping, 
+----------------------------------------------------------------------------------------------------
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ NutTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.MozzarellaTopping
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+PeperoniSausageTopping ⊑ ∃hasSpiciness.⊤
+(CheeseTopping ⊓ NutTopping) ⊑ ⊥
+TomatoTopping ⊑ VegetableTopping
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+MozzarellaTopping ⊑ ∃hasSpiciness.⊤
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+American ⊑ Pizza
+TomatoTopping ⊑ ∃hasSpiciness.⊤
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+MozzarellaTopping ⊑ CheeseTopping
+American ⊑ ∃hasTopping.TomatoTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: Pizza, 
+----------------------------------------------------------------------------------------------------
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.TomatoTopping
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+MozzarellaTopping ⊑ ∃hasSpiciness.⊤
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.MozzarellaTopping
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(FishTopping ⊓ NutTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(CheeseTopping ⊓ NutTopping) ⊑ ⊥
+TomatoTopping ⊑ VegetableTopping
+MozzarellaTopping ⊑ CheeseTopping
+PeperoniSausageTopping ⊑ ∃hasSpiciness.⊤
+TomatoTopping ⊑ ∃hasSpiciness.⊤
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+----------------------------------------------------------------------------------------------------
+FORGETTING: NutTopping, 
+----------------------------------------------------------------------------------------------------
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+PeperoniSausageTopping ⊑ ∃hasSpiciness.⊤
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+TomatoTopping ⊑ VegetableTopping
+MozzarellaTopping ⊑ ∃hasSpiciness.⊤
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.TomatoTopping
+MozzarellaTopping ⊑ CheeseTopping
+American ⊑ ∃hasTopping.MozzarellaTopping
+TomatoTopping ⊑ ∃hasSpiciness.⊤
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+----------------------------------------------------------------------------------------------------
+FORGETTING: FishTopping, 
+----------------------------------------------------------------------------------------------------
+TomatoTopping ⊑ ∃hasSpiciness.⊤
+American ⊑ ∃hasTopping.TomatoTopping
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+American ⊑ ∃hasTopping.MozzarellaTopping
+PeperoniSausageTopping ⊑ ∃hasSpiciness.⊤
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+TomatoTopping ⊑ VegetableTopping
+MozzarellaTopping ⊑ CheeseTopping
+MozzarellaTopping ⊑ ∃hasSpiciness.⊤
+----------------------------------------------------------------------------------------------------
+FORGETTING: HerbSpiceTopping, 
+----------------------------------------------------------------------------------------------------
+TomatoTopping ⊑ ∃hasSpiciness.⊤
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.TomatoTopping
+American ⊑ ∃hasTopping.MozzarellaTopping
+MozzarellaTopping ⊑ CheeseTopping
+TomatoTopping ⊑ VegetableTopping
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+MozzarellaTopping ⊑ ∃hasSpiciness.⊤
+PeperoniSausageTopping ⊑ ∃hasSpiciness.⊤
+----------------------------------------------------------------------------------------------------
+FORGETTING: CheeseTopping, 
+----------------------------------------------------------------------------------------------------
+PeperoniSausageTopping ⊑ ∃hasSpiciness.⊤
+MozzarellaTopping ⊑ ∃hasSpiciness.⊤
+American ⊑ ∃hasTopping.TomatoTopping
+(MozzarellaTopping ⊓ VegetableTopping) ⊑ ⊥
+TomatoTopping ⊑ ∃hasSpiciness.⊤
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+TomatoTopping ⊑ VegetableTopping
+American ⊑ ∃hasTopping.MozzarellaTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: VegetableTopping, 
+----------------------------------------------------------------------------------------------------
+American ⊑ ∃hasTopping.MozzarellaTopping
+MozzarellaTopping ⊑ ∃hasSpiciness.⊤
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+TomatoTopping ⊑ ∃hasSpiciness.⊤
+(MozzarellaTopping ⊓ TomatoTopping) ⊑ ⊥
+PeperoniSausageTopping ⊑ ∃hasSpiciness.⊤
+American ⊑ ∃hasTopping.TomatoTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasSpiciness, 
+----------------------------------------------------------------------------------------------------
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+(MozzarellaTopping ⊓ TomatoTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.MozzarellaTopping
+American ⊑ ∃hasTopping.TomatoTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasTopping, 
+----------------------------------------------------------------------------------------------------
+(MozzarellaTopping ⊓ TomatoTopping) ⊑ ⊥
+----------------------------------------------------------------------------------------------------
+FORGETTING: PeperoniSausageTopping, 
+----------------------------------------------------------------------------------------------------
+(MozzarellaTopping ⊓ TomatoTopping) ⊑ ⊥
+----------------------------------------------------------------------------------------------------
+FORGETTING: MozzarellaTopping, 
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+FORGETTING: TomatoTopping, 
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------

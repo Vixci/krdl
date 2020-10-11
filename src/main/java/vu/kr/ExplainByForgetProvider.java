@@ -24,6 +24,7 @@ public class ExplainByForgetProvider {
     private IOWLForgetter forgetter;
     private OntologyInspector subsumptionsInspector;
     private String justificationsDirPath;
+    private String explanationsDirPath;
     private int forgettingStrategy;
     private String ontologyName;
     private Metrics metrics;
@@ -34,9 +35,8 @@ public class ExplainByForgetProvider {
                                    String justificationsDirPath,
                                    String ontologyName) {
         this.subsumptionsInspector = subsumptionsInspector;
-        this.justificationsDirPath = justificationsDirPath;
         this.forgettingStrategy = forgettingStrategy;
-        this.metrics = new Metrics(justificationsDirPath);
+        this.justificationsDirPath = justificationsDirPath;
         this.ontologyName = ontologyName;
 
         switch (forgettingMethod) {
@@ -52,6 +52,10 @@ public class ExplainByForgetProvider {
             default:
                 throw new UnsupportedOperationException("Incorrect forgetting type. Allowed values: 1, 2 or 3.");
         }
+        this.explanationsDirPath = justificationsDirPath
+                + File.separator
+                + forgetter.getClass().getSimpleName();
+        this.metrics = new Metrics(explanationsDirPath, forgettingStrategy);
     }
 
 
@@ -134,7 +138,7 @@ public class ExplainByForgetProvider {
 
     private File getExplanationsExportFile(Path justificationsFilePath) {
         String fileName = justificationsFilePath.getFileName().toString().replace("justif", "expl" + forgettingStrategy);
-        return new File(justificationsDirPath + File.separator + fileName);
+        return new File(explanationsDirPath + File.separator + fileName);
     }
 
     private void exportToExplanations(File explanationFile, boolean append, String partial) throws IOException {
@@ -163,6 +167,7 @@ public class ExplainByForgetProvider {
      * Explains all the subsumptions' justifications using forgetting.
      */
     public void explainAllByForgetting() {
+        createExportDir();
         try {
             metrics.writeHeader();
         } catch (IOException e) {
@@ -185,5 +190,10 @@ public class ExplainByForgetProvider {
             if (index > 10) break;
         }
         metrics.close();
+    }
+
+    private void createExportDir() {
+        File dir = new File(explanationsDirPath);
+        dir.mkdir();
     }
 }

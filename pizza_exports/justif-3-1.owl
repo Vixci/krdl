@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="urn:unnamed:ontology#ont1506996085944400#"
-     xml:base="urn:unnamed:ontology#ont1506996085944400"
+<rdf:RDF xmlns="urn:unnamed:ontology#ont1606503525802353#"
+     xml:base="urn:unnamed:ontology#ont1606503525802353"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="urn:unnamed:ontology#ont1506996085944400"/>
+    <owl:Ontology rdf:about="urn:unnamed:ontology#ont1606503525802353"/>
     
 
 
@@ -22,12 +22,19 @@
     
 
 
+    <!-- owl://pizza#hasSpiciness -->
+
+
+    <owl:ObjectProperty rdf:about="owl://pizza#hasSpiciness">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- owl://pizza#hasTopping -->
 
 
-    <owl:ObjectProperty rdf:about="owl://pizza#hasTopping">
-        <rdfs:domain rdf:resource="owl://pizza#Pizza"/>
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="owl://pizza#hasTopping"/>
     
 
 
@@ -47,6 +54,7 @@
 
 
     <owl:Class rdf:about="owl://pizza#American">
+        <rdfs:subClassOf rdf:resource="owl://pizza#NamedPizza"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="owl://pizza#hasTopping"/>
@@ -97,6 +105,13 @@
     
 
 
+    <!-- owl://pizza#Hot -->
+
+
+    <owl:Class rdf:about="owl://pizza#Hot"/>
+    
+
+
     <!-- owl://pizza#InterestingPizza -->
 
 
@@ -123,11 +138,40 @@
     
 
 
+    <!-- owl://pizza#Medium -->
+
+
+    <owl:Class rdf:about="owl://pizza#Medium"/>
+    
+
+
+    <!-- owl://pizza#Mild -->
+
+
+    <owl:Class rdf:about="owl://pizza#Mild"/>
+    
+
+
     <!-- owl://pizza#MozzarellaTopping -->
 
 
     <owl:Class rdf:about="owl://pizza#MozzarellaTopping">
         <rdfs:subClassOf rdf:resource="owl://pizza#CheeseTopping"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="owl://pizza#hasSpiciness"/>
+                <owl:someValuesFrom rdf:resource="owl://pizza#Mild"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- owl://pizza#NamedPizza -->
+
+
+    <owl:Class rdf:about="owl://pizza#NamedPizza">
+        <rdfs:subClassOf rdf:resource="owl://pizza#Pizza"/>
     </owl:Class>
     
 
@@ -143,7 +187,12 @@
 
 
     <owl:Class rdf:about="owl://pizza#PeperoniSausageTopping">
-        <rdfs:subClassOf rdf:resource="owl://pizza#MeatTopping"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="owl://pizza#hasSpiciness"/>
+                <owl:someValuesFrom rdf:resource="owl://pizza#Medium"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -167,6 +216,12 @@
 
     <owl:Class rdf:about="owl://pizza#TomatoTopping">
         <rdfs:subClassOf rdf:resource="owl://pizza#VegetableTopping"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="owl://pizza#hasSpiciness"/>
+                <owl:someValuesFrom rdf:resource="owl://pizza#Mild"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -198,6 +253,14 @@
             <rdf:Description rdf:about="owl://pizza#NutTopping"/>
             <rdf:Description rdf:about="owl://pizza#SauceTopping"/>
             <rdf:Description rdf:about="owl://pizza#VegetableTopping"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="owl://pizza#Hot"/>
+            <rdf:Description rdf:about="owl://pizza#Medium"/>
+            <rdf:Description rdf:about="owl://pizza#Mild"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>

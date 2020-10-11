@@ -1,0 +1,51 @@
+EXPLAINING SUBSUMPTION: AmericanHot ⊑ DomainConcept
+****************************************************************************************************
+hasBase ⊑ hasIngredient
+Food ⊑ DomainConcept
+AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
+Pizza ⊑ ∃hasBase.PizzaBase
+domain(hasTopping) = Pizza
+domain(hasIngredient) = Food
+----------------------------------------------------------------------------------------------------
+FORGETTING: Food, 
+----------------------------------------------------------------------------------------------------
+hasBase ⊑ hasIngredient
+Pizza ⊑ ∃hasBase.PizzaBase
+∃hasTopping.⊤ ⊑ Pizza
+AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
+∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+FORGETTING: PizzaBase, 
+----------------------------------------------------------------------------------------------------
+hasBase ⊑ hasIngredient
+AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
+Pizza ⊑ ∃hasBase.⊤
+∃hasTopping.⊤ ⊑ Pizza
+∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasBase, 
+----------------------------------------------------------------------------------------------------
+∃hasTopping.⊤ ⊑ Pizza
+AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
+Pizza ⊑ ∃hasIngredient.⊤
+∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasTopping, 
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ Pizza
+∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasIngredient.⊤
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasIngredient, 
+----------------------------------------------------------------------------------------------------
+Pizza ⊑ DomainConcept
+AmericanHot ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: Pizza, 
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+FORGETTING: MozzarellaTopping, 
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------

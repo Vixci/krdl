@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="urn:unnamed:ontology#ont1506996085944425#"
-     xml:base="urn:unnamed:ontology#ont1506996085944425"
+<rdf:RDF xmlns="urn:unnamed:ontology#ont1606503525802378#"
+     xml:base="urn:unnamed:ontology#ont1606503525802378"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="urn:unnamed:ontology#ont1506996085944425"/>
+    <owl:Ontology rdf:about="urn:unnamed:ontology#ont1606503525802378"/>
     
 
 
@@ -85,7 +85,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="owl://pizza#hasTopping"/>
-                <owl:someValuesFrom rdf:resource="owl://pizza#JalapenoPepperTopping"/>
+                <owl:someValuesFrom rdf:resource="owl://pizza#TomatoTopping"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -108,13 +108,6 @@
     
 
 
-    <!-- owl://pizza#JalapenoPepperTopping -->
-
-
-    <owl:Class rdf:about="owl://pizza#JalapenoPepperTopping"/>
-    
-
-
     <!-- owl://pizza#Pizza -->
 
 
@@ -133,6 +126,13 @@
 
 
     <owl:Class rdf:about="owl://pizza#PizzaBase"/>
+    
+
+
+    <!-- owl://pizza#TomatoTopping -->
+
+
+    <owl:Class rdf:about="owl://pizza#TomatoTopping"/>
 </rdf:RDF>
 
 

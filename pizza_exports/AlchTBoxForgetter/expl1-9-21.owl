@@ -1,0 +1,64 @@
+EXPLAINING SUBSUMPTION: AmericanHot ⊑ DomainConcept
+****************************************************************************************************
+isBaseOf ⊑ isIngredientOf
+Food ⊑ DomainConcept
+AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
+Pizza ⊑ ∃hasBase.PizzaBase
+isIngredientOf ⊑ hasIngredient⁻
+hasIngredient ⊑ isIngredientOf⁻
+hasBase ⊑ isBaseOf⁻
+isBaseOf ⊑ hasBase⁻
+domain(hasTopping) = Pizza
+domain(hasIngredient) = Food
+----------------------------------------------------------------------------------------------------
+FORGETTING: Food, 
+----------------------------------------------------------------------------------------------------
+isBaseOf ⊑ isIngredientOf
+∃hasTopping.⊤ ⊑ Pizza
+Pizza ⊑ ∃hasBase.PizzaBase
+AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
+∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+FORGETTING: PizzaBase, 
+----------------------------------------------------------------------------------------------------
+isBaseOf ⊑ isIngredientOf
+AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
+Pizza ⊑ ∃hasBase.⊤
+∃hasTopping.⊤ ⊑ Pizza
+∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasBase, 
+----------------------------------------------------------------------------------------------------
+isBaseOf ⊑ isIngredientOf
+∃hasIngredient.⊤ ⊑ DomainConcept
+∃hasTopping.⊤ ⊑ Pizza
+AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: isIngredientOf, 
+----------------------------------------------------------------------------------------------------
+∃hasIngredient.⊤ ⊑ DomainConcept
+∃hasTopping.⊤ ⊑ Pizza
+AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasTopping, 
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ Pizza
+∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+FORGETTING: HotGreenPepperTopping, 
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ Pizza
+∃hasIngredient.⊤ ⊑ DomainConcept
+----------------------------------------------------------------------------------------------------
+FORGETTING: hasIngredient, 
+----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ Pizza
+----------------------------------------------------------------------------------------------------
+FORGETTING: Pizza, 
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+FORGETTING: isBaseOf, 
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
