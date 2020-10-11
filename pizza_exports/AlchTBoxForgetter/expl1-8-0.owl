@@ -1,24 +1,24 @@
 EXPLAINING SUBSUMPTION: AmericanHot ⊑ CheeseyPizza
 ****************************************************************************************************
-MozzarellaTopping ⊑ CheeseTopping
+NamedPizza ⊑ Pizza
 AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
 AmericanHot ⊑ NamedPizza
-NamedPizza ⊑ Pizza
+MozzarellaTopping ⊑ CheeseTopping
 CheeseyPizza ≡ (Pizza ⊓ ∃hasTopping.CheeseTopping)
 ----------------------------------------------------------------------------------------------------
 FORGETTING: NamedPizza, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ Pizza
-AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
-CheeseyPizza ⊑ ∃hasTopping.CheeseTopping
-(Pizza ⊓ ∃hasTopping.CheeseTopping) ⊑ CheeseyPizza
 CheeseyPizza ⊑ Pizza
+CheeseyPizza ⊑ ∃hasTopping.CheeseTopping
+AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
+(Pizza ⊓ ∃hasTopping.CheeseTopping) ⊑ CheeseyPizza
 MozzarellaTopping ⊑ CheeseTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: CheeseTopping, 
 ----------------------------------------------------------------------------------------------------
-AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
 CheeseyPizza ⊑ ∃hasTopping.⊤
+AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
 (Pizza ⊓ ∃hasTopping.MozzarellaTopping) ⊑ CheeseyPizza
 CheeseyPizza ⊑ Pizza
 AmericanHot ⊑ Pizza
@@ -30,10 +30,6 @@ AmericanHot ⊑ Pizza
 CheeseyPizza ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: Pizza, 
-----------------------------------------------------------------------------------------------------
-AmericanHot ⊑ CheeseyPizza
-----------------------------------------------------------------------------------------------------
-FORGETTING: MozzarellaTopping, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ CheeseyPizza
 ----------------------------------------------------------------------------------------------------

@@ -1,9 +1,9 @@
 EXPLAINING SUBSUMPTION: AmericanHot ⊑ DomainConcept
 ****************************************************************************************************
-Food ⊑ DomainConcept
 AmericanHot ⊑ NamedPizza
-Pizza ⊑ Food
 NamedPizza ⊑ Pizza
+Pizza ⊑ Food
+Food ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
 FORGETTING: Food, 
 ----------------------------------------------------------------------------------------------------

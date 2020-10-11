@@ -15,17 +15,17 @@ FORGETTING: Food,
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
 ∃hasTopping.⊤ ⊑ Pizza
+Pizza ⊑ ∃hasBase.PizzaBase
 AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
-Pizza ⊑ ∃hasBase.PizzaBase
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
 AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
-Pizza ⊑ ∃hasBase.⊤
 ∃hasIngredient.⊤ ⊑ DomainConcept
 ∃hasTopping.⊤ ⊑ Pizza
+Pizza ⊑ ∃hasBase.⊤
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------

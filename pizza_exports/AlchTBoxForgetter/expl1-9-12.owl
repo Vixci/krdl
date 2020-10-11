@@ -15,9 +15,9 @@ FORGETTING: Food,
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
 Pizza ⊑ ∃hasBase.PizzaBase
-AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
-∃hasIngredient.⊤ ⊑ DomainConcept
 ∃hasTopping.⊤ ⊑ Pizza
+∃hasIngredient.⊤ ⊑ DomainConcept
+AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------

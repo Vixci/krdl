@@ -14,22 +14,22 @@ FORGETTING: PizzaBase,
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
 ∃hasIngredient.⊤ ⊑ Food
-Pizza ⊑ ∃hasBase.⊤
 AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
+Pizza ⊑ ∃hasBase.⊤
 ∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
-∃hasTopping.⊤ ⊑ Pizza
 AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
 ∃hasIngredient.⊤ ⊑ Food
+∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: isIngredientOf, 
 ----------------------------------------------------------------------------------------------------
-∃hasTopping.⊤ ⊑ Pizza
 AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
 ∃hasIngredient.⊤ ⊑ Food
+∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------

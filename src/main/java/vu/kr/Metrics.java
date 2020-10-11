@@ -16,8 +16,9 @@ public class Metrics {
             "FORGETTING_STRATEGY",
             "FORMULA_ID",
             "FORMULA_SIZE",
-            "JUSTIFICATION_SIZE",
-            "STRATEGY_STEP_COUNT",
+            "JUSTIFICATION_SIZE", /* number of axioms in tge initial justification */
+            "STRATEGY_STEP_COUNT", /* number of batches in the forgetting strategy */
+            "STRATEGY_STEPS_DELTA", /* how many less steps were actually performed compared with strategy */
             "SUCCESSFUL_EXPLANATION"
     };
 
@@ -44,6 +45,7 @@ public class Metrics {
                          int entitiesInSubsumptionSize,
                          int justificationSize,
                          int strategyStepCount,
+                         int strategyStepsDelta,
                          boolean successfulExplanation) throws IOException {
         String[] row = new String[] {
                 ontologyName,
@@ -53,6 +55,7 @@ public class Metrics {
                 String.valueOf(entitiesInSubsumptionSize),
                 String.valueOf(justificationSize),
                 String.valueOf(strategyStepCount),
+                String.valueOf(strategyStepsDelta),
                 String.valueOf(successfulExplanation)
         };
         writeRow(row);

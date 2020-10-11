@@ -1,260 +1,260 @@
 EXPLAINING SUBSUMPTION: American ⊑ InterestingPizza
 ****************************************************************************************************
-TomatoTopping ⊑ VegetableTopping
 MozzarellaTopping ⊑ CheeseTopping
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+American ⊑ ∃hasTopping.TomatoTopping
 American ⊑ ∃hasTopping.MozzarellaTopping
 American ⊑ NamedPizza
-American ⊑ ∃hasTopping.PeperoniSausageTopping
+TomatoTopping ⊑ VegetableTopping
 PeperoniSausageTopping ⊑ MeatTopping
 NamedPizza ⊑ Pizza
-American ⊑ ∃hasTopping.TomatoTopping
 disjoint(NutTopping, SauceTopping, HerbSpiceTopping, CheeseTopping, VegetableTopping, MeatTopping, FruitTopping, FishTopping)
 InterestingPizza ≡ (Pizza ⊓ ⩾3hasTopping.⊤)
 ----------------------------------------------------------------------------------------------------
 FORGETTING: NamedPizza, 
 ----------------------------------------------------------------------------------------------------
-(SauceTopping ⊓ VegetableTopping) ⊑ ⊥
-(MeatTopping ⊓ VegetableTopping) ⊑ ⊥
-(MeatTopping ⊓ NutTopping) ⊑ ⊥
-(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
-PeperoniSausageTopping ⊑ MeatTopping
-(FishTopping ⊓ SauceTopping) ⊑ ⊥
-MozzarellaTopping ⊑ CheeseTopping
-(NutTopping ⊓ SauceTopping) ⊑ ⊥
-(CheeseTopping ⊓ SauceTopping) ⊑ ⊥
-(MeatTopping ⊓ SauceTopping) ⊑ ⊥
-American ⊑ Pizza
-(HerbSpiceTopping ⊓ SauceTopping) ⊑ ⊥
-(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
-(FishTopping ⊓ VegetableTopping) ⊑ ⊥
-(CheeseTopping ⊓ FishTopping) ⊑ ⊥
-(FruitTopping ⊓ HerbSpiceTopping) ⊑ ⊥
-(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
-(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
 TomatoTopping ⊑ VegetableTopping
-(CheeseTopping ⊓ MeatTopping) ⊑ ⊥
-(FishTopping ⊓ FruitTopping) ⊑ ⊥
-(FruitTopping ⊓ MeatTopping) ⊑ ⊥
-(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
 American ⊑ ∃hasTopping.TomatoTopping
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
 (FruitTopping ⊓ SauceTopping) ⊑ ⊥
-(FruitTopping ⊓ NutTopping) ⊑ ⊥
-(CheeseTopping ⊓ NutTopping) ⊑ ⊥
-(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
-(FishTopping ⊓ NutTopping) ⊑ ⊥
 (FruitTopping ⊓ VegetableTopping) ⊑ ⊥
+(FruitTopping ⊓ NutTopping) ⊑ ⊥
+(FruitTopping ⊓ MeatTopping) ⊑ ⊥
+(FruitTopping ⊓ HerbSpiceTopping) ⊑ ⊥
 American ⊑ ∃hasTopping.PeperoniSausageTopping
-(NutTopping ⊓ VegetableTopping) ⊑ ⊥
-American ⊑ ∃hasTopping.MozzarellaTopping
+(MeatTopping ⊓ SauceTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ NutTopping) ⊑ ⊥
+(SauceTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ FruitTopping) ⊑ ⊥
+American ⊑ Pizza
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(FishTopping ⊓ SauceTopping) ⊑ ⊥
+(CheeseTopping ⊓ MeatTopping) ⊑ ⊥
+(MeatTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ SauceTopping) ⊑ ⊥
 (HerbSpiceTopping ⊓ MeatTopping) ⊑ ⊥
+(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
+(NutTopping ⊓ SauceTopping) ⊑ ⊥
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ SauceTopping) ⊑ ⊥
+(FishTopping ⊓ NutTopping) ⊑ ⊥
+MozzarellaTopping ⊑ CheeseTopping
+(MeatTopping ⊓ NutTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.MozzarellaTopping
+PeperoniSausageTopping ⊑ MeatTopping
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
 (FishTopping ⊓ MeatTopping) ⊑ ⊥
 ----------------------------------------------------------------------------------------------------
 FORGETTING: SauceTopping, 
 ----------------------------------------------------------------------------------------------------
+(FishTopping ⊓ FruitTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
+(FishTopping ⊓ MeatTopping) ⊑ ⊥
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ NutTopping) ⊑ ⊥
+(FishTopping ⊓ NutTopping) ⊑ ⊥
+PeperoniSausageTopping ⊑ MeatTopping
 (CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
 American ⊑ Pizza
-(FishTopping ⊓ VegetableTopping) ⊑ ⊥
-(FishTopping ⊓ MeatTopping) ⊑ ⊥
-(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
-(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
-(CheeseTopping ⊓ FishTopping) ⊑ ⊥
-(FruitTopping ⊓ MeatTopping) ⊑ ⊥
-(FruitTopping ⊓ VegetableTopping) ⊑ ⊥
-(MeatTopping ⊓ NutTopping) ⊑ ⊥
-(CheeseTopping ⊓ NutTopping) ⊑ ⊥
-MozzarellaTopping ⊑ CheeseTopping
-(FishTopping ⊓ FruitTopping) ⊑ ⊥
 (FruitTopping ⊓ HerbSpiceTopping) ⊑ ⊥
-PeperoniSausageTopping ⊑ MeatTopping
-(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
-(NutTopping ⊓ VegetableTopping) ⊑ ⊥
-American ⊑ ∃hasTopping.PeperoniSausageTopping
-(FruitTopping ⊓ NutTopping) ⊑ ⊥
-(MeatTopping ⊓ VegetableTopping) ⊑ ⊥
-American ⊑ ∃hasTopping.TomatoTopping
-American ⊑ ∃hasTopping.MozzarellaTopping
-(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
-(FishTopping ⊓ NutTopping) ⊑ ⊥
+(FruitTopping ⊓ VegetableTopping) ⊑ ⊥
+MozzarellaTopping ⊑ CheeseTopping
 TomatoTopping ⊑ VegetableTopping
-(CheeseTopping ⊓ MeatTopping) ⊑ ⊥
-(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
 (HerbSpiceTopping ⊓ MeatTopping) ⊑ ⊥
+(MeatTopping ⊓ VegetableTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.TomatoTopping
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+(FruitTopping ⊓ NutTopping) ⊑ ⊥
+(MeatTopping ⊓ NutTopping) ⊑ ⊥
+(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.MozzarellaTopping
+(FruitTopping ⊓ MeatTopping) ⊑ ⊥
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+(CheeseTopping ⊓ MeatTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.PeperoniSausageTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: owl:Thing
 ----------------------------------------------------------------------------------------------------
-(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
-(FishTopping ⊓ FruitTopping) ⊑ ⊥
-(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
-(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
 American ⊑ ∃hasTopping.TomatoTopping
-(CheeseTopping ⊓ NutTopping) ⊑ ⊥
-(HerbSpiceTopping ⊓ MeatTopping) ⊑ ⊥
-(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
 (MeatTopping ⊓ VegetableTopping) ⊑ ⊥
-TomatoTopping ⊑ VegetableTopping
-(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
-(FruitTopping ⊓ MeatTopping) ⊑ ⊥
-(CheeseTopping ⊓ FishTopping) ⊑ ⊥
-American ⊑ ∃hasTopping.PeperoniSausageTopping
-American ⊑ ∃hasTopping.MozzarellaTopping
 (MeatTopping ⊓ NutTopping) ⊑ ⊥
+(FishTopping ⊓ FruitTopping) ⊑ ⊥
+(CheeseTopping ⊓ NutTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
 (FruitTopping ⊓ NutTopping) ⊑ ⊥
-(FruitTopping ⊓ HerbSpiceTopping) ⊑ ⊥
-(FishTopping ⊓ NutTopping) ⊑ ⊥
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ MeatTopping) ⊑ ⊥
 PeperoniSausageTopping ⊑ MeatTopping
 (CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
-(FishTopping ⊓ VegetableTopping) ⊑ ⊥
-(FruitTopping ⊓ VegetableTopping) ⊑ ⊥
-MozzarellaTopping ⊑ CheeseTopping
-(NutTopping ⊓ VegetableTopping) ⊑ ⊥
-(FishTopping ⊓ MeatTopping) ⊑ ⊥
+TomatoTopping ⊑ VegetableTopping
+American ⊑ ∃hasTopping.MozzarellaTopping
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(FishTopping ⊓ NutTopping) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
 American ⊑ Pizza
+(FruitTopping ⊓ MeatTopping) ⊑ ⊥
+(FishTopping ⊓ MeatTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+MozzarellaTopping ⊑ CheeseTopping
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+(FruitTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(FruitTopping ⊓ VegetableTopping) ⊑ ⊥
 (CheeseTopping ⊓ MeatTopping) ⊑ ⊥
 ----------------------------------------------------------------------------------------------------
 FORGETTING: MeatTopping, 
 ----------------------------------------------------------------------------------------------------
-(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
-(FruitTopping ⊓ HerbSpiceTopping) ⊑ ⊥
 American ⊑ ∃hasTopping.MozzarellaTopping
-(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
-(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
-TomatoTopping ⊑ VegetableTopping
-(NutTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-American ⊑ Pizza
-(NutTopping ⊓ VegetableTopping) ⊑ ⊥
-(PeperoniSausageTopping ⊓ VegetableTopping) ⊑ ⊥
-(FishTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-(CheeseTopping ⊓ NutTopping) ⊑ ⊥
-(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
-(FishTopping ⊓ FruitTopping) ⊑ ⊥
-(HerbSpiceTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-American ⊑ ∃hasTopping.PeperoniSausageTopping
-(FishTopping ⊓ VegetableTopping) ⊑ ⊥
-American ⊑ ∃hasTopping.TomatoTopping
-(FruitTopping ⊓ VegetableTopping) ⊑ ⊥
-(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
-(FruitTopping ⊓ NutTopping) ⊑ ⊥
-(CheeseTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
-(CheeseTopping ⊓ FishTopping) ⊑ ⊥
-MozzarellaTopping ⊑ CheeseTopping
 (FishTopping ⊓ NutTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+(CheeseTopping ⊓ FruitTopping) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ FruitTopping) ⊑ ⊥
+(FishTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+(FruitTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(PeperoniSausageTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.TomatoTopping
+(NutTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+MozzarellaTopping ⊑ CheeseTopping
+(FruitTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ Pizza
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(FruitTopping ⊓ NutTopping) ⊑ ⊥
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
 (FruitTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+(CheeseTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+(CheeseTopping ⊓ NutTopping) ⊑ ⊥
+TomatoTopping ⊑ VegetableTopping
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
 ----------------------------------------------------------------------------------------------------
 FORGETTING: FruitTopping, 
 ----------------------------------------------------------------------------------------------------
-(FishTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-(FishTopping ⊓ NutTopping) ⊑ ⊥
-(CheeseTopping ⊓ FishTopping) ⊑ ⊥
-(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
-(PeperoniSausageTopping ⊓ VegetableTopping) ⊑ ⊥
-(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
-American ⊑ ∃hasTopping.TomatoTopping
-American ⊑ ∃hasTopping.PeperoniSausageTopping
-(HerbSpiceTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-(NutTopping ⊓ VegetableTopping) ⊑ ⊥
-(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
 (NutTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-TomatoTopping ⊑ VegetableTopping
-American ⊑ ∃hasTopping.MozzarellaTopping
-(CheeseTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
 (FishTopping ⊓ VegetableTopping) ⊑ ⊥
-MozzarellaTopping ⊑ CheeseTopping
 American ⊑ Pizza
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+(PeperoniSausageTopping ⊓ VegetableTopping) ⊑ ⊥
+TomatoTopping ⊑ VegetableTopping
 (CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
 (CheeseTopping ⊓ NutTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.MozzarellaTopping
+(HerbSpiceTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+MozzarellaTopping ⊑ CheeseTopping
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.TomatoTopping
+(FishTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+(FishTopping ⊓ NutTopping) ⊑ ⊥
 ----------------------------------------------------------------------------------------------------
 FORGETTING: Pizza, 
 ----------------------------------------------------------------------------------------------------
-(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
-(CheeseTopping ⊓ FishTopping) ⊑ ⊥
-(PeperoniSausageTopping ⊓ VegetableTopping) ⊑ ⊥
-(CheeseTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
-(FishTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
-TomatoTopping ⊑ VegetableTopping
-American ⊑ ∃hasTopping.MozzarellaTopping
-(FishTopping ⊓ NutTopping) ⊑ ⊥
-(NutTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-American ⊑ ∃hasTopping.TomatoTopping
-MozzarellaTopping ⊑ CheeseTopping
-(CheeseTopping ⊓ NutTopping) ⊑ ⊥
-(NutTopping ⊓ VegetableTopping) ⊑ ⊥
-(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
 American ⊑ ∃hasTopping.PeperoniSausageTopping
-(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
 (FishTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.TomatoTopping
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+(CheeseTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+(PeperoniSausageTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ NutTopping) ⊑ ⊥
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(NutTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ NutTopping) ⊑ ⊥
+TomatoTopping ⊑ VegetableTopping
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.MozzarellaTopping
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ NutTopping) ⊑ ⊥
+MozzarellaTopping ⊑ CheeseTopping
+(NutTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
 (HerbSpiceTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
 ----------------------------------------------------------------------------------------------------
 FORGETTING: NutTopping, 
 ----------------------------------------------------------------------------------------------------
 (PeperoniSausageTopping ⊓ VegetableTopping) ⊑ ⊥
-(FishTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
-(CheeseTopping ⊓ FishTopping) ⊑ ⊥
-American ⊑ ∃hasTopping.MozzarellaTopping
-MozzarellaTopping ⊑ CheeseTopping
-TomatoTopping ⊑ VegetableTopping
-(HerbSpiceTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-(FishTopping ⊓ VegetableTopping) ⊑ ⊥
 American ⊑ ∃hasTopping.PeperoniSausageTopping
-(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
-(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ FishTopping) ⊑ ⊥
+MozzarellaTopping ⊑ CheeseTopping
 (CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
 American ⊑ ∃hasTopping.TomatoTopping
+TomatoTopping ⊑ VegetableTopping
+American ⊑ ∃hasTopping.MozzarellaTopping
 (CheeseTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+(FishTopping ⊓ VegetableTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+(FishTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+(FishTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
 ----------------------------------------------------------------------------------------------------
 FORGETTING: FishTopping, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ ∃hasTopping.TomatoTopping
-American ⊑ ∃hasTopping.PeperoniSausageTopping
-(CheeseTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-(PeperoniSausageTopping ⊓ VegetableTopping) ⊑ ⊥
 American ⊑ ∃hasTopping.MozzarellaTopping
-TomatoTopping ⊑ VegetableTopping
-(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
-MozzarellaTopping ⊑ CheeseTopping
-(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
-(HerbSpiceTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
 (HerbSpiceTopping ⊓ VegetableTopping) ⊑ ⊥
+MozzarellaTopping ⊑ CheeseTopping
+(CheeseTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+(HerbSpiceTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
+(CheeseTopping ⊓ HerbSpiceTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+TomatoTopping ⊑ VegetableTopping
+(PeperoniSausageTopping ⊓ VegetableTopping) ⊑ ⊥
+(CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
 ----------------------------------------------------------------------------------------------------
 FORGETTING: HerbSpiceTopping, 
 ----------------------------------------------------------------------------------------------------
-American ⊑ ∃hasTopping.PeperoniSausageTopping
-MozzarellaTopping ⊑ CheeseTopping
-American ⊑ ∃hasTopping.TomatoTopping
-TomatoTopping ⊑ VegetableTopping
 (PeperoniSausageTopping ⊓ VegetableTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.PeperoniSausageTopping
 (CheeseTopping ⊓ VegetableTopping) ⊑ ⊥
+TomatoTopping ⊑ VegetableTopping
 American ⊑ ∃hasTopping.MozzarellaTopping
+American ⊑ ∃hasTopping.TomatoTopping
+MozzarellaTopping ⊑ CheeseTopping
 (CheeseTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
 ----------------------------------------------------------------------------------------------------
 FORGETTING: CheeseTopping, 
 ----------------------------------------------------------------------------------------------------
+TomatoTopping ⊑ VegetableTopping
 American ⊑ ∃hasTopping.MozzarellaTopping
 (MozzarellaTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-American ⊑ ∃hasTopping.PeperoniSausageTopping
 (MozzarellaTopping ⊓ VegetableTopping) ⊑ ⊥
-TomatoTopping ⊑ VegetableTopping
 American ⊑ ∃hasTopping.TomatoTopping
+American ⊑ ∃hasTopping.PeperoniSausageTopping
 (PeperoniSausageTopping ⊓ VegetableTopping) ⊑ ⊥
 ----------------------------------------------------------------------------------------------------
 FORGETTING: VegetableTopping, 
 ----------------------------------------------------------------------------------------------------
 (MozzarellaTopping ⊓ TomatoTopping) ⊑ ⊥
-American ⊑ ∃hasTopping.MozzarellaTopping
-American ⊑ ∃hasTopping.PeperoniSausageTopping
-(MozzarellaTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
 (PeperoniSausageTopping ⊓ TomatoTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+American ⊑ ∃hasTopping.MozzarellaTopping
 American ⊑ ∃hasTopping.TomatoTopping
+(MozzarellaTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
+(PeperoniSausageTopping ⊓ TomatoTopping) ⊑ ⊥
 (MozzarellaTopping ⊓ TomatoTopping) ⊑ ⊥
 (MozzarellaTopping ⊓ PeperoniSausageTopping) ⊑ ⊥
-(PeperoniSausageTopping ⊓ TomatoTopping) ⊑ ⊥
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PeperoniSausageTopping, 
 ----------------------------------------------------------------------------------------------------

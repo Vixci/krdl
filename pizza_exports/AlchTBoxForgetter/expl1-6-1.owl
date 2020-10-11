@@ -8,32 +8,32 @@ domain(hasTopping) = Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: FishTopping, 
 ----------------------------------------------------------------------------------------------------
-Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
-NonVegetarianPizza ⊑ Pizza
-∃hasTopping.⊤ ⊑ Pizza
-PeperoniSausageTopping ⊑ MeatTopping
 VegetarianPizza ⊑ Pizza
+NonVegetarianPizza ⊑ Pizza
 (NonVegetarianPizza ⊓ VegetarianPizza) ⊑ ⊥
-American ⊑ ∃hasTopping.PeperoniSausageTopping
 Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤ ⊔ ∃hasTopping.MeatTopping)
+∃hasTopping.⊤ ⊑ Pizza
 (VegetarianPizza ⊓ ∃hasTopping.MeatTopping) ⊑ ⊥
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+PeperoniSausageTopping ⊑ MeatTopping
+Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
 ----------------------------------------------------------------------------------------------------
 FORGETTING: MeatTopping, 
 ----------------------------------------------------------------------------------------------------
-(NonVegetarianPizza ⊓ VegetarianPizza) ⊑ ⊥
-NonVegetarianPizza ⊑ Pizza
-(VegetarianPizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ ⊥
-Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤)
-VegetarianPizza ⊑ Pizza
 ∃hasTopping.⊤ ⊑ Pizza
 Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
+NonVegetarianPizza ⊑ Pizza
 American ⊑ ∃hasTopping.PeperoniSausageTopping
+Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤)
+(VegetarianPizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ ⊥
+(NonVegetarianPizza ⊓ VegetarianPizza) ⊑ ⊥
+VegetarianPizza ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: VegetarianPizza, 
 ----------------------------------------------------------------------------------------------------
-NonVegetarianPizza ⊑ Pizza
-American ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasTopping.⊤ ⊑ Pizza
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+NonVegetarianPizza ⊑ Pizza
 (NonVegetarianPizza ⊓ Pizza) ⊑ ∃hasTopping.⊤
 (Pizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ NonVegetarianPizza
 ----------------------------------------------------------------------------------------------------

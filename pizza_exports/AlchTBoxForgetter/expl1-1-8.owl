@@ -10,31 +10,31 @@ domain(hasIngredient) = Food
 FORGETTING: Food, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
-Pizza ⊑ ∃hasBase.PizzaBase
-∃hasTopping.⊤ ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ DomainConcept
+∃hasTopping.⊤ ⊑ Pizza
 American ⊑ ∃hasTopping.MozzarellaTopping
+Pizza ⊑ ∃hasBase.PizzaBase
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
-American ⊑ ∃hasTopping.MozzarellaTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
-∃hasTopping.⊤ ⊑ Pizza
 Pizza ⊑ ∃hasBase.⊤
+American ⊑ ∃hasTopping.MozzarellaTopping
+∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
-Pizza ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasIngredient.⊤
 American ⊑ ∃hasTopping.MozzarellaTopping
 ∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ Pizza
-∃hasIngredient.⊤ ⊑ DomainConcept
 Pizza ⊑ ∃hasIngredient.⊤
+∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------
@@ -42,10 +42,6 @@ Pizza ⊑ DomainConcept
 American ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: Pizza, 
-----------------------------------------------------------------------------------------------------
-American ⊑ DomainConcept
-----------------------------------------------------------------------------------------------------
-FORGETTING: MozzarellaTopping, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------

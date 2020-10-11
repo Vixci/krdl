@@ -1,27 +1,27 @@
 EXPLAINING SUBSUMPTION: American ⊑ CheeseyPizza
 ****************************************************************************************************
 American ⊑ ∃hasTopping.MozzarellaTopping
+NamedPizza ⊑ Pizza
 American ⊑ NamedPizza
 MozzarellaTopping ⊑ CheeseTopping
-NamedPizza ⊑ Pizza
 CheeseyPizza ≡ (Pizza ⊓ ∃hasTopping.CheeseTopping)
 ----------------------------------------------------------------------------------------------------
 FORGETTING: NamedPizza, 
 ----------------------------------------------------------------------------------------------------
-CheeseyPizza ⊑ ∃hasTopping.CheeseTopping
-American ⊑ ∃hasTopping.MozzarellaTopping
-MozzarellaTopping ⊑ CheeseTopping
-CheeseyPizza ⊑ Pizza
-American ⊑ Pizza
 (Pizza ⊓ ∃hasTopping.CheeseTopping) ⊑ CheeseyPizza
+MozzarellaTopping ⊑ CheeseTopping
+American ⊑ Pizza
+CheeseyPizza ⊑ ∃hasTopping.CheeseTopping
+CheeseyPizza ⊑ Pizza
+American ⊑ ∃hasTopping.MozzarellaTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: CheeseTopping, 
 ----------------------------------------------------------------------------------------------------
-American ⊑ Pizza
-(Pizza ⊓ ∃hasTopping.MozzarellaTopping) ⊑ CheeseyPizza
-CheeseyPizza ⊑ Pizza
 American ⊑ ∃hasTopping.MozzarellaTopping
+(Pizza ⊓ ∃hasTopping.MozzarellaTopping) ⊑ CheeseyPizza
 CheeseyPizza ⊑ ∃hasTopping.⊤
+CheeseyPizza ⊑ Pizza
+American ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
@@ -30,10 +30,6 @@ CheeseyPizza ⊑ Pizza
 American ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: Pizza, 
-----------------------------------------------------------------------------------------------------
-American ⊑ CheeseyPizza
-----------------------------------------------------------------------------------------------------
-FORGETTING: MozzarellaTopping, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ CheeseyPizza
 ----------------------------------------------------------------------------------------------------

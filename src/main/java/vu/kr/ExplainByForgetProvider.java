@@ -2,6 +2,7 @@ package vu.kr;
 
 import com.google.common.collect.Sets;
 import org.semanticweb.owlapi.model.*;
+import org.semanticweb.owlapi.model.parameters.Imports;
 import uk.ac.man.cs.lethe.forgetting.AlcOntologyForgetter;
 import uk.ac.man.cs.lethe.forgetting.AlchTBoxForgetter;
 import uk.ac.man.cs.lethe.forgetting.IOWLForgetter;
@@ -96,18 +97,25 @@ public class ExplainByForgetProvider {
             OntologyInspector justificationInspector = new OntologyInspector(justificationFilePath.toString());
             // Create the explanation export file and put the subsumption whose justification is explained
             exportToExplanations(explanationsFile, false, "EXPLAINING SUBSUMPTION: " + SimpleOWLFormatter.format(subsumption));
-            // Export the initial justifications in
+            // Export the initial justifications in the file
             exportToExplanations(explanationsFile, true, SimpleOWLFormatter.format(justificationInspector.getOntology()));
             Set<OWLEntity> toBeForgotten = justificationInspector.getAllEntities();
-            int initialJustificationAxiomCount = justificationInspector.getOntology().getAxiomCount();
+            int initialJustificationAxiomCount = justificationInspector.getOntology().getLogicalAxiomCount(Imports.EXCLUDED);
             toBeForgotten.removeAll(entitiesInSubsumption);
             System.out.println("Initial entities to forget: " + toBeForgotten);
             List<Set<OWLEntity>> strategy = getStrategy(toBeForgotten);
             boolean succesfulExplanation = false;
             int actualForgettingStepsDelta =  strategy.size();
+
+            // If the justification is the conclusion itself, consider it a success.
+            if (justificationInspector.getOntology().getLogicalAxiomCount(Imports.EXCLUDED) == 1
+                    && justificationInspector.getOntology().containsAxiom(subsumption)) {
+                succesfulExplanation = true;
+            }
+
             for (Set<OWLEntity> batch : strategy) {
+
                 OWLOntology newOntology = forgetter.forget(justificationInspector.getOntology(), batch);
-                System.out.println(batch);
                 Optional<String> batchString = batch.stream()
                         .map(e -> e.toString())
                         .map(e -> e.lastIndexOf("#") == -1? e: e.substring(e.lastIndexOf('#')+1, e.length() - 1) + ", ")
@@ -118,11 +126,13 @@ public class ExplainByForgetProvider {
 
                 justificationInspector.setOntology(newOntology);
                 exportToExplanations(explanationsFile, true, SimpleOWLFormatter.format(newOntology));
-                if (newOntology.getAxiomCount() == 1
+
+                actualForgettingStepsDelta --;
+
+                if (justificationInspector.getOntology().getLogicalAxiomCount(Imports.EXCLUDED) == 1
                         && justificationInspector.getOntology().containsAxiom(subsumption)) {
                     succesfulExplanation = true;
-                } else {
-                    actualForgettingStepsDelta --;
+                    break;
                 }
             }
             metrics.writeRow(ontologyName,
@@ -132,6 +142,7 @@ public class ExplainByForgetProvider {
                     entitiesInSubsumption.size(),
                     initialJustificationAxiomCount,
                     strategy.size(),
+                    actualForgettingStepsDelta,
                     succesfulExplanation);
         }
     }
@@ -187,7 +198,7 @@ public class ExplainByForgetProvider {
             }
             System.out.println("---------------------------------------------------");
             // TODO(Vixci) remove this line after debugging
-            if (index > 10) break;
+//            if (index > 1) break;
         }
         metrics.close();
     }
