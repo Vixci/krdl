@@ -1,6 +1,7 @@
 # Project exclude paths
 /target/
 /.idea/
+/.idea/libraries/
 /pizza_exports/
 /pizza_exports/AlchTBoxForgetter/
 /pizza_super_simple_exports/

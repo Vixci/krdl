@@ -15,16 +15,29 @@ The projects experiments with various strategies for forgetting:
 
 The tool needs at least JRE 11 to run.
 
-The main class to run is DLExplanantion. Use the following command line options:
+The main class to run is DLExplanation. 
+
+To run the program, use the following command line options:
+
 1. The ontology file (required)
 2. Either of the options 1, 2 or 3:
   - Option 1 - to generate all the direct and inferred subsumptions
   - Option 2 - to generate all justifications for the subsumptions generated with option 1
-  - Option 3 - to generate all explanations by forgetting to all justifications generated with option 2. If option 3 is provided, then another argument needs to be provided, representing the forgettting method supported by LETHE:
-    - Method 1 - AlchTBoxForgetter
-    - Method 2 - ShqTBoxForgetter
-    - Method 3 - AlcOntologyForgetter
+  - Option 3 - to generate all explanations by forgetting to all justifications generated with option 2. 
+  If option 3 is provided, then another 2 arguments need to be provided, representing:
+    - The forgetting method supported by LETHE:
+         - Method 1 - AlchTBoxForgetter
+         - Method 2 - ShqTBoxForgetter
+         - Method 3 - AlcOntologyForgetter
+    - The forgetting strategy: 
+        - 1 forgetting entities 1-by-1 in random order
+        - 2 forgetting entities that occur most frequently in initial justification the last
+    
 
+Example usage:
 
+    > java -jar krdl.jar my_path/pizza_super_simple.owl 1
+    > java -jar krdl.jar my_path/pizza_super_simple.owl 2
+    > java -jar krdl.jar my_path/pizza_super_simple.owl  3 1 2
 
 

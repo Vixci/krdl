@@ -154,7 +154,7 @@ public class ExplainByForgetProvider {
                 OWLOntology newOntology = forgetter.forget(justificationInspector.getOntology(), batch);
 
                 if (newOntology.getLogicalAxiomCount() > justificationSizePrev) {
-                    justificationIncreaseAmount += 1;
+                    justificationIncreaseAmount += newOntology.getLogicalAxiomCount()  - justificationSizePrev;
                 }
                 justificationSizePrev = newOntology.getLogicalAxiomCount();
 
@@ -241,7 +241,7 @@ public class ExplainByForgetProvider {
             }
             System.out.println("---------------------------------------------------");
             // TODO(Vixci) remove this line after debugging
-            if (index > 3) break;
+            //if (index > 3) break;
         }
         metrics.close();
     }
