@@ -19,6 +19,7 @@ public class Metrics {
             "JUSTIFICATION_SIZE", /* number of axioms in tge initial justification */
             "STRATEGY_STEP_COUNT", /* number of batches in the forgetting strategy */
             "STRATEGY_STEPS_DELTA", /* how many less steps were actually performed compared with strategy */
+            "JUSTIFICATION_INCREASE_AMOUNT",
             "SUCCESSFUL_EXPLANATION"
     };
 
@@ -46,6 +47,7 @@ public class Metrics {
                          int justificationSize,
                          int strategyStepCount,
                          int strategyStepsDelta,
+                         int justificationIncreaseAmount,
                          boolean successfulExplanation) throws IOException {
         String[] row = new String[] {
                 ontologyName,
@@ -56,6 +58,7 @@ public class Metrics {
                 String.valueOf(justificationSize),
                 String.valueOf(strategyStepCount),
                 String.valueOf(strategyStepsDelta),
+                String.valueOf(justificationIncreaseAmount),
                 String.valueOf(successfulExplanation)
         };
         writeRow(row);

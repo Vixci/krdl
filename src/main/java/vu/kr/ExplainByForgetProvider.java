@@ -149,9 +149,18 @@ public class ExplainByForgetProvider {
                 succesfulExplanation = true;
             }
 
+            int justificationIncreaseAmount = 0;
+            int justificationSizePrev = initialJustificationAxiomCount;
+
             for (Set<OWLEntity> batch : strategy) {
 
                 OWLOntology newOntology = forgetter.forget(justificationInspector.getOntology(), batch);
+
+                if (newOntology.getLogicalAxiomCount() > justificationSizePrev) {
+                    justificationIncreaseAmount += 1;
+                }
+                justificationSizePrev = newOntology.getLogicalAxiomCount();
+
                 Optional<String> batchString = batch.stream()
                         .map(e -> e.toString())
                         .map(e -> e.lastIndexOf("#") == -1? e: e.substring(e.lastIndexOf('#')+1, e.length() - 1) + ", ")
@@ -179,6 +188,7 @@ public class ExplainByForgetProvider {
                     initialJustificationAxiomCount,
                     strategy.size(),
                     actualForgettingStepsDelta,
+                    justificationIncreaseAmount,
                     succesfulExplanation);
         }
     }
@@ -234,7 +244,7 @@ public class ExplainByForgetProvider {
             }
             System.out.println("---------------------------------------------------");
             // TODO(Vixci) remove this line after debugging
-            if (index >= 1) break;
+            if (index > 3) break;
         }
         metrics.close();
     }

@@ -13,9 +13,9 @@ domain(hasIngredient) = Food
 FORGETTING: NamedPizza, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
-Pizza ⊑ ∃hasBase.PizzaBase
-∃hasIngredient.⊤ ⊑ Food
 American ⊑ Pizza
+∃hasIngredient.⊤ ⊑ Food
+Pizza ⊑ ∃hasBase.PizzaBase
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
