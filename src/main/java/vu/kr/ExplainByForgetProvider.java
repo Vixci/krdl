@@ -75,7 +75,6 @@ public class ExplainByForgetProvider {
                 Map<OWLEntity, Integer> occ = new HashMap<>();
 
                 for (OWLLogicalAxiom axiom: justification.logicalAxioms().collect(Collectors.toList())) {
-                    System.out.println(axiom);
                     for (OWLEntity entity: toBeForgotten) {
                         if (axiom.containsEntityInSignature(entity)) {
                             if (occ.containsKey(entity)) {
@@ -104,8 +103,6 @@ public class ExplainByForgetProvider {
                 strategy = list.stream()
                         .map(entry -> Sets.newHashSet(entry.getKey()))
                         .collect(Collectors.toList());
-
-                System.out.println(strategy);
 
                 break;
             default:
