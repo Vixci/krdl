@@ -1,2 +1,5 @@
 # Project exclude paths
 /target/
+/.idea/
+/pizza_exports/
+/pizza_super_simple_exports/
