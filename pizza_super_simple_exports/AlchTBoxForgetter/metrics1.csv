@@ -1,0 +1,4 @@
+ONTOLOGY_NAME,FORGETTING_STRATEGY,FORMULA_ID,FORMULA_SIZE,JUSTIFICATION_SIZE,STRATEGY_STEP_COUNT,STRATEGY_STEPS_DELTA,SUCCESSFUL_EXPLANATION
+pizza_super_simple,AlchTBoxForgetter,1,0,2,3,3,0,true
+pizza_super_simple,AlchTBoxForgetter,1,0,2,3,3,1,true
+pizza_super_simple,AlchTBoxForgetter,1,0,2,3,3,1,true

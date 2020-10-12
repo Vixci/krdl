@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="urn:unnamed:ontology#ont1605891580799148#"
-     xml:base="urn:unnamed:ontology#ont1605891580799148"
+<rdf:RDF xmlns="urn:unnamed:ontology#ont768546928469265#"
+     xml:base="urn:unnamed:ontology#ont768546928469265"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="urn:unnamed:ontology#ont1605891580799148"/>
+    <owl:Ontology rdf:about="urn:unnamed:ontology#ont768546928469265"/>
     
 
 
@@ -50,17 +50,17 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="owl://pizza#hasTopping"/>
-                <owl:someValuesFrom rdf:resource="owl://pizza#PeperonataTopping"/>
+                <owl:someValuesFrom rdf:resource="owl://pizza#MozzarellaTopping"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- owl://pizza#PeperonataTopping -->
+    <!-- owl://pizza#MozzarellaTopping -->
 
 
-    <owl:Class rdf:about="owl://pizza#PeperonataTopping"/>
+    <owl:Class rdf:about="owl://pizza#MozzarellaTopping"/>
     
 
 

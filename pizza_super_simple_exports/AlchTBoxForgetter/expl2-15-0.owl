@@ -1,0 +1,28 @@
+EXPLAINING SUBSUMPTION: CheeseTopping ⊑ VegetarianTopping
+****************************************************************************************************
+CheeseTopping ⊑ PizzaTopping
+VegetarianTopping ≡ (PizzaTopping ⊓ (HerbSpiceTopping ⊔ FruitTopping ⊔ VegetableTopping ⊔ CheeseTopping ⊔ SauceTopping ⊔ NutTopping))
+----------------------------------------------------------------------------------------------------
+FORGETTING: SauceTopping, 
+----------------------------------------------------------------------------------------------------
+CheeseTopping ⊑ PizzaTopping
+(FruitTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+VegetarianTopping ⊑ PizzaTopping
+(PizzaTopping ⊓ VegetableTopping) ⊑ VegetarianTopping
+(NutTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(HerbSpiceTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(CheeseTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: HerbSpiceTopping, 
+----------------------------------------------------------------------------------------------------
+CheeseTopping ⊑ PizzaTopping
+VegetarianTopping ⊑ PizzaTopping
+(CheeseTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(PizzaTopping ⊓ VegetableTopping) ⊑ VegetarianTopping
+(NutTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(FruitTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: PizzaTopping, 
+----------------------------------------------------------------------------------------------------
+CheeseTopping ⊑ VegetarianTopping
+----------------------------------------------------------------------------------------------------

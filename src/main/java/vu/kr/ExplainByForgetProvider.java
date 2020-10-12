@@ -14,10 +14,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
@@ -60,7 +57,7 @@ public class ExplainByForgetProvider {
     }
 
 
-    private List<Set<OWLEntity>> getStrategy(Set<OWLEntity> toBeForgotten) {
+    private List<Set<OWLEntity>> getStrategy(Set<OWLEntity> toBeForgotten, OWLOntology justification) {
         List<Set<OWLEntity>> strategy = null;
         switch (forgettingStrategy) {
             case 1:
@@ -72,6 +69,45 @@ public class ExplainByForgetProvider {
                 break;
             // TODO(Vixci): design other forgetting strategy: split the initial set into a list of sets representing the
             //  order to forget
+            case 2:
+
+
+                Map<OWLEntity, Integer> occ = new HashMap<>();
+
+                for (OWLLogicalAxiom axiom: justification.logicalAxioms().collect(Collectors.toList())) {
+                    System.out.println(axiom);
+                    for (OWLEntity entity: toBeForgotten) {
+                        if (axiom.containsEntityInSignature(entity)) {
+                            if (occ.containsKey(entity)) {
+                                occ.put(entity, occ.get(entity)+1);
+                            }
+                            else {
+                                occ.put(entity, 1);
+                            }
+                        }
+                    }
+                }
+
+                // Create a list from elements of HashMap
+                List<Map.Entry<OWLEntity, Integer> > list =
+                        new LinkedList<>(occ.entrySet());
+
+                // Sort the list
+                Collections.sort(list, new Comparator<Map.Entry<OWLEntity, Integer> >() {
+                    public int compare(Map.Entry<OWLEntity, Integer> o1,
+                                       Map.Entry<OWLEntity, Integer> o2)
+                    {
+                        return (o1.getValue()).compareTo(o2.getValue());
+                    }
+                });
+
+                strategy = list.stream()
+                        .map(entry -> Sets.newHashSet(entry.getKey()))
+                        .collect(Collectors.toList());
+
+                System.out.println(strategy);
+
+                break;
             default:
                 throw new UnsupportedOperationException("Forgetting strategy not supported");
         }
@@ -103,7 +139,7 @@ public class ExplainByForgetProvider {
             int initialJustificationAxiomCount = justificationInspector.getOntology().getLogicalAxiomCount(Imports.EXCLUDED);
             toBeForgotten.removeAll(entitiesInSubsumption);
             System.out.println("Initial entities to forget: " + toBeForgotten);
-            List<Set<OWLEntity>> strategy = getStrategy(toBeForgotten);
+            List<Set<OWLEntity>> strategy = getStrategy(toBeForgotten, justificationInspector.getOntology());
             boolean succesfulExplanation = false;
             int actualForgettingStepsDelta =  strategy.size();
 
@@ -198,7 +234,7 @@ public class ExplainByForgetProvider {
             }
             System.out.println("---------------------------------------------------");
             // TODO(Vixci) remove this line after debugging
-//            if (index > 1) break;
+            if (index >= 1) break;
         }
         metrics.close();
     }
