@@ -3,6 +3,11 @@ EXPLAINING SUBSUMPTION: American ⊑ Pizza
 American ⊑ ∃hasTopping.PeperoniSausageTopping
 domain(hasTopping) = Pizza
 ----------------------------------------------------------------------------------------------------
+FORGETTING: PeperoniSausageTopping, 
+----------------------------------------------------------------------------------------------------
+American ⊑ ∃hasTopping.⊤
+∃hasTopping.⊤ ⊑ Pizza
+----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ Pizza

@@ -69,9 +69,39 @@ public class ExplainByForgetProvider {
                 break;
             // TODO(Vixci): design other forgetting strategy: split the initial set into a list of sets representing the
             //  order to forget
-            case 2:
+            case 2: {
+                //sort
+                Map<OWLEntity, Integer> occ = new HashMap<>();
 
+                for (OWLLogicalAxiom axiom : justification.logicalAxioms().collect(Collectors.toList())) {
+                    for (OWLEntity entity : toBeForgotten) {
+                        if (axiom.containsEntityInSignature(entity)) {
+                            if (occ.containsKey(entity)) {
+                                occ.put(entity, occ.get(entity) + 1);
+                            } else {
+                                occ.put(entity, 1);
+                            }
+                        }
+                    }
+                }
 
+                // Create a list from elements of HashMap
+                List<Map.Entry<OWLEntity, Integer>> list =
+                        new LinkedList<>(occ.entrySet());
+
+                // Sort the list
+                Collections.sort(list, (o1, o2) -> (o1.getValue()).compareTo(o2.getValue()));
+
+                System.out.println(list);
+
+                strategy = list.stream()
+                        .map(entry -> Sets.newHashSet(entry.getKey()))
+                        .collect(Collectors.toList());
+
+                break;
+            }
+            case 3: {
+                //sort reverse
                 Map<OWLEntity, Integer> occ = new HashMap<>();
 
                 for (OWLLogicalAxiom axiom: justification.logicalAxioms().collect(Collectors.toList())) {
@@ -92,19 +122,49 @@ public class ExplainByForgetProvider {
                         new LinkedList<>(occ.entrySet());
 
                 // Sort the list
-                Collections.sort(list, new Comparator<Map.Entry<OWLEntity, Integer> >() {
-                    public int compare(Map.Entry<OWLEntity, Integer> o1,
-                                       Map.Entry<OWLEntity, Integer> o2)
-                    {
-                        return (o1.getValue()).compareTo(o2.getValue());
-                    }
-                });
+                Collections.sort(list, (o1, o2) -> (o2.getValue()).compareTo(o1.getValue()));
+
+                System.out.println(list);
 
                 strategy = list.stream()
                         .map(entry -> Sets.newHashSet(entry.getKey()))
                         .collect(Collectors.toList());
 
                 break;
+            }
+            case 4: {
+                //sort and aggregate batches
+                Map<OWLEntity, Integer> occ = new HashMap<>();
+
+                for (OWLLogicalAxiom axiom : justification.logicalAxioms().collect(Collectors.toList())) {
+                    for (OWLEntity entity : toBeForgotten) {
+                        if (axiom.containsEntityInSignature(entity)) {
+                            if (occ.containsKey(entity)) {
+                                occ.put(entity, occ.get(entity) + 1);
+                            } else {
+                                occ.put(entity, 1);
+                            }
+                        }
+                    }
+                }
+
+                Map<Integer, List<OWLEntity>> valueMap = occ.keySet().stream().collect(Collectors.groupingBy(k -> occ.get(k)));
+
+                // Create a list from elements of HashMap
+                List<Map.Entry<Integer, List<OWLEntity>>> list =
+                        new LinkedList<>(valueMap.entrySet());
+
+                // Sort the list
+                Collections.sort(list, (o1, o2) -> (o1.getKey()).compareTo(o2.getKey()));
+
+                System.out.println(list);
+
+                strategy = list.stream()
+                        .map(entry -> Sets.newHashSet(entry.getValue()))
+                        .collect(Collectors.toList());
+
+                break;
+            }
             default:
                 throw new UnsupportedOperationException("Forgetting strategy not supported");
         }

@@ -1,8 +1,8 @@
 EXPLAINING SUBSUMPTION: American ⊑ DomainConcept
 ****************************************************************************************************
-Food ⊑ DomainConcept
 Pizza ⊑ Food
 NamedPizza ⊑ Pizza
+Food ⊑ DomainConcept
 American ⊑ NamedPizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: Food, 

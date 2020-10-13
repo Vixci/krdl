@@ -1,10 +1,10 @@
 EXPLAINING SUBSUMPTION: American ⊑ DomainConcept
 ****************************************************************************************************
 isBaseOf ⊑ isIngredientOf
-Food ⊑ DomainConcept
-NamedPizza ⊑ Pizza
 American ⊑ NamedPizza
+NamedPizza ⊑ Pizza
 Pizza ⊑ ∃hasBase.PizzaBase
+Food ⊑ DomainConcept
 isIngredientOf ⊑ hasIngredient⁻
 hasIngredient ⊑ isIngredientOf⁻
 hasBase ⊑ isBaseOf⁻
@@ -14,17 +14,17 @@ domain(hasIngredient) = Food
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
+Pizza ⊑ ∃hasBase.⊤
 NamedPizza ⊑ Pizza
+American ⊑ NamedPizza
 ∃hasIngredient.⊤ ⊑ Food
 Food ⊑ DomainConcept
-American ⊑ NamedPizza
-Pizza ⊑ ∃hasBase.⊤
 ----------------------------------------------------------------------------------------------------
 FORGETTING: Food, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
-Pizza ⊑ ∃hasBase.⊤
 ∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasBase.⊤
 American ⊑ NamedPizza
 NamedPizza ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
@@ -38,13 +38,13 @@ American ⊑ Pizza
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
-∃hasIngredient.⊤ ⊑ DomainConcept
 American ⊑ Pizza
+∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
 FORGETTING: isIngredientOf, 
 ----------------------------------------------------------------------------------------------------
-∃hasIngredient.⊤ ⊑ DomainConcept
 American ⊑ Pizza
+∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------
