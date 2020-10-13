@@ -13,6 +13,7 @@ import java.util.stream.Stream;
 public class Metrics {
     private static String[] CSV_HEADER = {
             "ONTOLOGY_NAME",
+            "FORGETTING_METHOD",
             "FORGETTING_STRATEGY",
             "FORMULA_ID",
             "FORMULA_SIZE",
