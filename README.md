@@ -10,7 +10,9 @@ All the results are exported in a directory called `<ontology_name>_exports` whe
 The projects experiments with various heuristics for forgetting: 
 
 1. Random 1-by-1, in which symbols are forgotten 1 by 1 in random order
-2. In decreasing order of frequency of occurence in the axioms in the initial justification.
+2. 1-by-1 in increasing order of frequency of occurence in the axioms in the initial justification (less frequent first).
+3. 1-by-1 in decreasing order of frequency of occurence in the axioms in the initial justification (more frequent first).
+4. In batches of the same frequency at once, in increasing order of frequency of occurence in the axioms in the initial justification (less frequent first)
 
 
 ### Running the tool
