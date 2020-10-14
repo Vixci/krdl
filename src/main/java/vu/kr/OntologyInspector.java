@@ -91,6 +91,7 @@ public class OntologyInspector {
         return ontology.tboxAxioms(Imports.EXCLUDED)
                 .filter(axiom -> axiom.isOfType(AxiomType.SUBCLASS_OF))
                 .map(axiom -> (OWLSubClassOfAxiom) axiom)
+                .filter(axiom -> axiom.getSubClass() instanceof  OWLClass && axiom.getSuperClass() instanceof  OWLClass)
                 .distinct()
                 .sorted()
                 .collect(Collectors.toList());

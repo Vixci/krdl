@@ -16,10 +16,11 @@ public class Metrics {
             "FORGETTING_METHOD",
             "FORGETTING_STRATEGY",
             "FORMULA_ID",
+            "JUSTIFICATION_ID",
             "FORMULA_SIZE",
             "JUSTIFICATION_SIZE", /* number of axioms in tge initial justification */
             "STRATEGY_STEP_COUNT", /* number of batches in the forgetting strategy */
-            "STRATEGY_STEPS_DELTA", /* how many less steps were actually performed compared with strategy */
+            "EXPLANATION_LENGTH", /* how many steps did the explanation take */
             "JUSTIFICATION_INCREASE_AMOUNT",
             "SUCCESSFUL_EXPLANATION"
     };
@@ -44,10 +45,11 @@ public class Metrics {
                          String forgetterType,
                          int forgettingStrategy,
                          int subsumptionIndex,
+                         int justificationIndex,
                          int entitiesInSubsumptionSize,
                          int justificationSize,
                          int strategyStepCount,
-                         int strategyStepsDelta,
+                         int explanationLength,
                          int justificationIncreaseAmount,
                          boolean successfulExplanation) throws IOException {
         String[] row = new String[] {
@@ -55,14 +57,16 @@ public class Metrics {
                 forgetterType,
                 String.valueOf(forgettingStrategy),
                 String.valueOf(subsumptionIndex),
+                String.valueOf(justificationIndex),
                 String.valueOf(entitiesInSubsumptionSize),
                 String.valueOf(justificationSize),
                 String.valueOf(strategyStepCount),
-                String.valueOf(strategyStepsDelta),
+                String.valueOf(explanationLength),
                 String.valueOf(justificationIncreaseAmount),
-                String.valueOf(successfulExplanation)
+                String.valueOf(successfulExplanation?1:0)
         };
         writeRow(row);
+        pw.flush();
     }
 
     private void writeRow(String[] row) throws IOException {

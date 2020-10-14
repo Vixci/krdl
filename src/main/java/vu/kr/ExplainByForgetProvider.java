@@ -186,6 +186,7 @@ public class ExplainByForgetProvider {
         Set<OWLEntity> entitiesInSubsumption = subsumption.signature().collect(Collectors.toSet());
 
         for(Path justificationFilePath : justificationFilePaths) {
+            int justificationIndex = getIdFromFile(justificationFilePath);
             File explanationsFile = getExplanationsExportFile(justificationFilePath);
             OntologyInspector justificationInspector = new OntologyInspector(justificationFilePath.toString());
             // Create the explanation export file and put the subsumption whose justification is explained
@@ -241,15 +242,21 @@ public class ExplainByForgetProvider {
                     forgetter.getClass().getSimpleName(),
                     forgettingStrategy,
                     index,
+                    justificationIndex,
                     entitiesInSubsumption.size(),
                     initialJustificationAxiomCount,
                     strategy.size(),
-                    actualForgettingStepsDelta,
+                    strategy.size() - actualForgettingStepsDelta,
                     justificationIncreaseAmount,
                     succesfulExplanation);
         }
     }
 
+    private int getIdFromFile(Path justificationFilePath) {
+        String[] tokens = justificationFilePath.getFileName().toString().split("-");
+        return Integer.parseInt(tokens[2].split("\\.")[0]);
+
+    }
     private File getExplanationsExportFile(Path justificationsFilePath) {
         String fileName = justificationsFilePath.getFileName().toString().replace("justif", "expl" + forgettingStrategy);
         return new File(explanationsDirPath + File.separator + fileName);
