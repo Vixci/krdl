@@ -1,6 +1,5 @@
 package vu.kr;
 
-import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.model.parameters.Imports;
@@ -325,7 +324,7 @@ public class ExplainByForgetProvider {
             }
             System.out.println("---------------------------------------------------");
             // TODO(Vixci) remove this line after debugging
-            if (index > 0) break;
+//            if (index > 0) break;
         }
         metrics.close();
     }
