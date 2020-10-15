@@ -38,9 +38,13 @@ To run the program, use the following command line options:
          - Method 3 - `AlcOntologyForgetter`
     - The forgetting strategy: 
         - 1 forgetting entities 1-by-1 in random order
-        - 2 forgetting entities that occur most frequently in initial justification the last
+        - 2 1-by-1 in increasing order of frequency of occurence in the axioms in the initial justification (less frequent first).
+        - 3 1-by-1 in decreasing order of frequency of occurence in the axioms in the initial justification (more frequent first).
+        - 4 In batches of the same frequency at once, in increasing order of frequency of occurrence in the axioms in the initial justification (less frequent first)
+        - 5 In batches by class expression type, i.e. the symbols occurring only in simple axioms without logical operations or property restrictions first, then symbols occuring in logical operations, then symbols occuring only in more complex axioms with property restrictions.
  The explanations by forgetting are exported in human readable format in files named
  `<ontology_name>_exports/<forgetting_method>/expl<strategy_id>-<subsumption_id>-<justification_id>.owl`  
+For example `pizza_exports/AlchForgetter/expl3-1-7.owl` contains explanations using strategy 3 for justification #7 of subsumption #1.
 
 Example usage:
 
