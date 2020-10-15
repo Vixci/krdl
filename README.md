@@ -13,7 +13,7 @@ The projects experiments with various heuristics for forgetting:
 2. 1-by-1 in increasing order of frequency of occurence in the axioms in the initial justification (less frequent first).
 3. 1-by-1 in decreasing order of frequency of occurence in the axioms in the initial justification (more frequent first).
 4. In batches of the same frequency at once, in increasing order of frequency of occurence in the axioms in the initial justification (less frequent first)
-
+5. In batches by class expression type, i.e. the symbols occurring only in simple axioms without logical operations or property restrictions first, then symbols occuring in logical operations, then symbols occuring only in more complex axioms with property restrictions.
 
 ### Running the tool
 
