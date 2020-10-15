@@ -1,5 +1,6 @@
 package vu.kr;
 
+import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.model.parameters.Imports;
@@ -56,6 +57,25 @@ public class ExplainByForgetProvider {
         this.metrics = new Metrics(explanationsDirPath, forgettingStrategy);
     }
 
+    /**
+     * Returns a map with occurences of symbols to be forgotten in the justification.
+     */
+    private Map<OWLEntity, Integer> getOccurenceMap(OWLOntology justification, Set<OWLEntity> toBeForgotten) {
+        Map<OWLEntity, Integer> occ = new HashMap<>();
+
+        for (OWLLogicalAxiom axiom : justification.logicalAxioms().collect(Collectors.toList())) {
+            for (OWLEntity entity : toBeForgotten) {
+                if (axiom.containsEntityInSignature(entity)) {
+                    if (occ.containsKey(entity)) {
+                        occ.put(entity, occ.get(entity) + 1);
+                    } else {
+                        occ.put(entity, 1);
+                    }
+                }
+            }
+        }
+        return occ;
+    }
 
     private List<Set<OWLEntity>> getStrategy(Set<OWLEntity> toBeForgotten, OWLOntology justification) {
         List<Set<OWLEntity>> strategy = null;
@@ -67,23 +87,9 @@ public class ExplainByForgetProvider {
                         .map(owlEntity -> Sets.newHashSet(owlEntity))
                         .collect(Collectors.toList());
                 break;
-            // TODO(Vixci): design other forgetting strategy: split the initial set into a list of sets representing the
-            //  order to forget
             case 2: {
                 //sort
-                Map<OWLEntity, Integer> occ = new HashMap<>();
-
-                for (OWLLogicalAxiom axiom : justification.logicalAxioms().collect(Collectors.toList())) {
-                    for (OWLEntity entity : toBeForgotten) {
-                        if (axiom.containsEntityInSignature(entity)) {
-                            if (occ.containsKey(entity)) {
-                                occ.put(entity, occ.get(entity) + 1);
-                            } else {
-                                occ.put(entity, 1);
-                            }
-                        }
-                    }
-                }
+                Map<OWLEntity, Integer> occ = getOccurenceMap(justification, toBeForgotten);
 
                 // Create a list from elements of HashMap
                 List<Map.Entry<OWLEntity, Integer>> list =
@@ -91,8 +97,6 @@ public class ExplainByForgetProvider {
 
                 // Sort the list
                 Collections.sort(list, (o1, o2) -> (o1.getValue()).compareTo(o2.getValue()));
-
-                System.out.println(list);
 
                 strategy = list.stream()
                         .map(entry -> Sets.newHashSet(entry.getKey()))
@@ -102,20 +106,7 @@ public class ExplainByForgetProvider {
             }
             case 3: {
                 //sort reverse
-                Map<OWLEntity, Integer> occ = new HashMap<>();
-
-                for (OWLLogicalAxiom axiom: justification.logicalAxioms().collect(Collectors.toList())) {
-                    for (OWLEntity entity: toBeForgotten) {
-                        if (axiom.containsEntityInSignature(entity)) {
-                            if (occ.containsKey(entity)) {
-                                occ.put(entity, occ.get(entity)+1);
-                            }
-                            else {
-                                occ.put(entity, 1);
-                            }
-                        }
-                    }
-                }
+                Map<OWLEntity, Integer> occ = getOccurenceMap(justification, toBeForgotten);
 
                 // Create a list from elements of HashMap
                 List<Map.Entry<OWLEntity, Integer> > list =
@@ -123,8 +114,6 @@ public class ExplainByForgetProvider {
 
                 // Sort the list
                 Collections.sort(list, (o1, o2) -> (o2.getValue()).compareTo(o1.getValue()));
-
-                System.out.println(list);
 
                 strategy = list.stream()
                         .map(entry -> Sets.newHashSet(entry.getKey()))
@@ -134,21 +123,10 @@ public class ExplainByForgetProvider {
             }
             case 4: {
                 //sort and aggregate batches
-                Map<OWLEntity, Integer> occ = new HashMap<>();
+                Map<OWLEntity, Integer> occ = getOccurenceMap(justification, toBeForgotten);
 
-                for (OWLLogicalAxiom axiom : justification.logicalAxioms().collect(Collectors.toList())) {
-                    for (OWLEntity entity : toBeForgotten) {
-                        if (axiom.containsEntityInSignature(entity)) {
-                            if (occ.containsKey(entity)) {
-                                occ.put(entity, occ.get(entity) + 1);
-                            } else {
-                                occ.put(entity, 1);
-                            }
-                        }
-                    }
-                }
-
-                Map<Integer, List<OWLEntity>> valueMap = occ.keySet().stream().collect(Collectors.groupingBy(k -> occ.get(k)));
+                Map<Integer, List<OWLEntity>> valueMap = occ.keySet().stream()
+                        .collect(Collectors.groupingBy(k -> occ.get(k)));
 
                 // Create a list from elements of HashMap
                 List<Map.Entry<Integer, List<OWLEntity>>> list =
@@ -156,8 +134,6 @@ public class ExplainByForgetProvider {
 
                 // Sort the list
                 Collections.sort(list, (o1, o2) -> (o1.getKey()).compareTo(o2.getKey()));
-
-                System.out.println(list);
 
                 strategy = list.stream()
                         .map(entry -> Sets.newHashSet(entry.getValue()))
@@ -170,7 +146,6 @@ public class ExplainByForgetProvider {
         }
         return strategy;
     }
-
 
     /**
      * Forgets all the symbols in the justification with the aim to explain it better.
