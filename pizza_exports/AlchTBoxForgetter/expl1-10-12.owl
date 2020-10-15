@@ -21,15 +21,15 @@ AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
+AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
 ∃hasIngredient.⊤ ⊑ Food
 ∃hasTopping.⊤ ⊑ Pizza
-AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: isIngredientOf, 
 ----------------------------------------------------------------------------------------------------
+AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
 ∃hasIngredient.⊤ ⊑ Food
 ∃hasTopping.⊤ ⊑ Pizza
-AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------

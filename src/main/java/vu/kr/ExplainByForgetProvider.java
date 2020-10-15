@@ -60,10 +60,10 @@ public class ExplainByForgetProvider {
     /**
      * Returns a map with occurences of symbols to be forgotten in the justification.
      */
-    private Map<OWLEntity, Integer> getOccurenceMap(OWLOntology justification, Set<OWLEntity> toBeForgotten) {
+    private Map<OWLEntity, Integer> getOccurenceMap(OntologyInspector justification, Set<OWLEntity> toBeForgotten) {
         Map<OWLEntity, Integer> occ = new HashMap<>();
 
-        for (OWLLogicalAxiom axiom : justification.logicalAxioms().collect(Collectors.toList())) {
+        for (OWLLogicalAxiom axiom : justification.getOntology().logicalAxioms().collect(Collectors.toList())) {
             for (OWLEntity entity : toBeForgotten) {
                 if (axiom.containsEntityInSignature(entity)) {
                     if (occ.containsKey(entity)) {
@@ -77,7 +77,7 @@ public class ExplainByForgetProvider {
         return occ;
     }
 
-    private List<Set<OWLEntity>> getStrategy(Set<OWLEntity> toBeForgotten, OWLOntology justification) {
+    private List<Set<OWLEntity>> getStrategy(Set<OWLEntity> toBeForgotten, OntologyInspector justification) {
         List<Set<OWLEntity>> strategy = null;
         switch (forgettingStrategy) {
             case 1:
@@ -141,12 +141,54 @@ public class ExplainByForgetProvider {
 
                 break;
             }
+            case 5: {
+
+                strategy = new ArrayList<>();
+
+                Set<OWLEntity> restrictedSet = justification.getEntitiesOfClassType(OrderingCriteria.RESTRICTED_OPERATION.getClassTypes());
+                Set<OWLEntity> logicalSet = Sets.difference(justification.getEntitiesOfClassType(OrderingCriteria.LOGICAL_OPERATION.getClassTypes()), restrictedSet);
+                Set<OWLEntity> simpleSet = Sets.difference(justification.getEntitiesOfClassType(OrderingCriteria.SIMPLE_CLASS.getClassTypes()), Sets.union(logicalSet, restrictedSet));
+                Set<OWLEntity> otherEntities = justification.getAllEntities();
+                strategy.add(simpleSet);
+                strategy.add(logicalSet);
+                strategy.add(restrictedSet);
+                otherEntities.removeAll(strategy.get(0));
+                otherEntities.removeAll(strategy.get(1));
+                otherEntities.removeAll(strategy.get(2));
+                strategy.add(otherEntities);
+
+                strategy = strategy.stream()
+                        .map(s -> Sets.intersection(s, toBeForgotten))
+                        .collect(Collectors.toList());
+
+                strategy = strategy.stream()
+                        .filter(s -> !s.isEmpty())
+                        .collect(Collectors.toList());
+
+                System.out.println(strategy);
+                break;
+            }
             default:
                 throw new UnsupportedOperationException("Forgetting strategy not supported");
         }
         return strategy;
     }
 
+    private enum OrderingCriteria {
+        SIMPLE_CLASS (ClassExpressionType.OWL_CLASS, ClassExpressionType.OBJECT_COMPLEMENT_OF),
+        LOGICAL_OPERATION (ClassExpressionType.OBJECT_INTERSECTION_OF, ClassExpressionType.OBJECT_UNION_OF),
+        RESTRICTED_OPERATION (ClassExpressionType.OBJECT_ALL_VALUES_FROM, ClassExpressionType.OBJECT_SOME_VALUES_FROM),
+        OTHER ;
+
+        private ClassExpressionType[] classTypes;
+
+        OrderingCriteria(ClassExpressionType ... classTypes) {
+            this.classTypes = classTypes;
+        }
+        Set<ClassExpressionType> getClassTypes() {
+            return Set.of(classTypes);
+        }
+    }
     /**
      * Forgets all the symbols in the justification with the aim to explain it better.
      */
@@ -172,7 +214,7 @@ public class ExplainByForgetProvider {
             int initialJustificationAxiomCount = justificationInspector.getOntology().getLogicalAxiomCount(Imports.EXCLUDED);
             toBeForgotten.removeAll(entitiesInSubsumption);
             System.out.println("Initial entities to forget: " + toBeForgotten);
-            List<Set<OWLEntity>> strategy = getStrategy(toBeForgotten, justificationInspector.getOntology());
+            List<Set<OWLEntity>> strategy = getStrategy(toBeForgotten, justificationInspector);
             boolean succesfulExplanation = false;
             int actualForgettingStepsDelta =  strategy.size();
 
@@ -283,7 +325,7 @@ public class ExplainByForgetProvider {
             }
             System.out.println("---------------------------------------------------");
             // TODO(Vixci) remove this line after debugging
-            //if (index > 3) break;
+            if (index > 0) break;
         }
         metrics.close();
     }

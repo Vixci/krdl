@@ -10,30 +10,30 @@ FORGETTING: PizzaBase,
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
 Pizza ⊑ ∃hasBase.⊤
-AmericanHot ⊑ ∃hasTopping.JalapenoPepperTopping
 ∃hasTopping.⊤ ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ Food
+AmericanHot ⊑ ∃hasTopping.JalapenoPepperTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: JalapenoPepperTopping, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
+∃hasIngredient.⊤ ⊑ Food
 ∃hasTopping.⊤ ⊑ Pizza
 AmericanHot ⊑ ∃hasTopping.⊤
 Pizza ⊑ ∃hasBase.⊤
-∃hasIngredient.⊤ ⊑ Food
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
-AmericanHot ⊑ ∃hasTopping.⊤
-Pizza ⊑ ∃hasIngredient.⊤
-∃hasTopping.⊤ ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ Food
+AmericanHot ⊑ ∃hasTopping.⊤
+∃hasTopping.⊤ ⊑ Pizza
+Pizza ⊑ ∃hasIngredient.⊤
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ Pizza
-∃hasIngredient.⊤ ⊑ Food
 Pizza ⊑ ∃hasIngredient.⊤
+∃hasIngredient.⊤ ⊑ Food
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------

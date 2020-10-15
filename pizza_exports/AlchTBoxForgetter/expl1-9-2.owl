@@ -17,8 +17,8 @@ AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: isIngredientOf, 
 ----------------------------------------------------------------------------------------------------
-AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
+AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------

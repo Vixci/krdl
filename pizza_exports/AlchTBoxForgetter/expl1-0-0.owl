@@ -1,27 +1,27 @@
 EXPLAINING SUBSUMPTION: American ⊑ CheeseyPizza
 ****************************************************************************************************
-American ⊑ NamedPizza
-MozzarellaTopping ⊑ CheeseTopping
 NamedPizza ⊑ Pizza
 American ⊑ ∃hasTopping.MozzarellaTopping
+MozzarellaTopping ⊑ CheeseTopping
+American ⊑ NamedPizza
 CheeseyPizza ≡ (Pizza ⊓ ∃hasTopping.CheeseTopping)
 ----------------------------------------------------------------------------------------------------
 FORGETTING: NamedPizza, 
 ----------------------------------------------------------------------------------------------------
+MozzarellaTopping ⊑ CheeseTopping
 CheeseyPizza ⊑ Pizza
-American ⊑ Pizza
-CheeseyPizza ⊑ ∃hasTopping.CheeseTopping
 (Pizza ⊓ ∃hasTopping.CheeseTopping) ⊑ CheeseyPizza
 American ⊑ ∃hasTopping.MozzarellaTopping
-MozzarellaTopping ⊑ CheeseTopping
+CheeseyPizza ⊑ ∃hasTopping.CheeseTopping
+American ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: CheeseTopping, 
 ----------------------------------------------------------------------------------------------------
+(Pizza ⊓ ∃hasTopping.MozzarellaTopping) ⊑ CheeseyPizza
+CheeseyPizza ⊑ Pizza
 American ⊑ ∃hasTopping.MozzarellaTopping
 CheeseyPizza ⊑ ∃hasTopping.⊤
-CheeseyPizza ⊑ Pizza
 American ⊑ Pizza
-(Pizza ⊓ ∃hasTopping.MozzarellaTopping) ⊑ CheeseyPizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------

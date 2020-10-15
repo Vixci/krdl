@@ -17,8 +17,8 @@ AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: isIngredientOf, 
 ----------------------------------------------------------------------------------------------------
-AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
+AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------

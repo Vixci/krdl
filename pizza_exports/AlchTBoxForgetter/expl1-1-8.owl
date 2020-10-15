@@ -11,9 +11,9 @@ FORGETTING: Food,
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
 ∃hasTopping.⊤ ⊑ Pizza
+American ⊑ ∃hasTopping.MozzarellaTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
 Pizza ⊑ ∃hasBase.PizzaBase
-American ⊑ ∃hasTopping.MozzarellaTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
@@ -25,10 +25,10 @@ American ⊑ ∃hasTopping.MozzarellaTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
-Pizza ⊑ ∃hasIngredient.⊤
-American ⊑ ∃hasTopping.MozzarellaTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasIngredient.⊤
 ∃hasTopping.⊤ ⊑ Pizza
+American ⊑ ∃hasTopping.MozzarellaTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------

@@ -8,21 +8,21 @@ domain(hasTopping) = Pizza
 FORGETTING: MeatTopping, 
 ----------------------------------------------------------------------------------------------------
 (Pizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ MeatyPizza
-American ⊑ ∃hasTopping.PeperoniSausageTopping
-MeatyPizza ⊑ Pizza
 MeatyPizza ⊑ ∃hasTopping.⊤
+MeatyPizza ⊑ Pizza
 ∃hasTopping.⊤ ⊑ Pizza
+American ⊑ ∃hasTopping.PeperoniSausageTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
-MeatyPizza ⊑ Pizza
 American ⊑ Pizza
+MeatyPizza ⊑ Pizza
 (American ⊓ Pizza) ⊑ MeatyPizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PeperoniSausageTopping, 
 ----------------------------------------------------------------------------------------------------
-MeatyPizza ⊑ Pizza
 American ⊑ Pizza
+MeatyPizza ⊑ Pizza
 (American ⊓ Pizza) ⊑ MeatyPizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: Pizza, 

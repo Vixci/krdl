@@ -4,9 +4,15 @@ hasTopping ⊑ hasIngredient
 Capricciosa ⊑ ∃hasTopping.HamTopping
 domain(hasIngredient) = Food
 ----------------------------------------------------------------------------------------------------
+FORGETTING: HamTopping, 
+----------------------------------------------------------------------------------------------------
+hasTopping ⊑ hasIngredient
+Capricciosa ⊑ ∃hasTopping.⊤
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
-Capricciosa ⊑ ∃hasIngredient.HamTopping
+Capricciosa ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ Food
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasIngredient, 

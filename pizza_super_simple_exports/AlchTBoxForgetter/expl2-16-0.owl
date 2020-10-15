@@ -4,9 +4,15 @@ hasTopping ⊑ hasIngredient
 Veneziana ⊑ ∃hasTopping.MozzarellaTopping
 domain(hasIngredient) = Food
 ----------------------------------------------------------------------------------------------------
+FORGETTING: MozzarellaTopping, 
+----------------------------------------------------------------------------------------------------
+hasTopping ⊑ hasIngredient
+Veneziana ⊑ ∃hasTopping.⊤
+∃hasIngredient.⊤ ⊑ Food
+----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
-Veneziana ⊑ ∃hasIngredient.MozzarellaTopping
+Veneziana ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ Food
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasIngredient, 

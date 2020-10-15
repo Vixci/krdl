@@ -8,8 +8,8 @@ domain(hasIngredient) = Food
 FORGETTING: Food, 
 ----------------------------------------------------------------------------------------------------
 hasTopping ⊑ hasIngredient
-∃hasIngredient.⊤ ⊑ DomainConcept
 AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
+∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------

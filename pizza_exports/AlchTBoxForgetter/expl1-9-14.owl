@@ -11,30 +11,30 @@ FORGETTING: Food,
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
 AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
-Pizza ⊑ ∃hasBase.PizzaBase
-∃hasTopping.⊤ ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ DomainConcept
+∃hasTopping.⊤ ⊑ Pizza
+Pizza ⊑ ∃hasBase.PizzaBase
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
-∃hasIngredient.⊤ ⊑ DomainConcept
-AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
-∃hasTopping.⊤ ⊑ Pizza
 Pizza ⊑ ∃hasBase.⊤
+AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
+∃hasIngredient.⊤ ⊑ DomainConcept
+∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
-∃hasIngredient.⊤ ⊑ DomainConcept
 AmericanHot ⊑ ∃hasTopping.MozzarellaTopping
 Pizza ⊑ ∃hasIngredient.⊤
+∃hasIngredient.⊤ ⊑ DomainConcept
 ∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ Pizza
-Pizza ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasIngredient.⊤
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------

@@ -10,37 +10,37 @@ domain(hasIngredient) = Food
 FORGETTING: Food, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
-∃hasTopping.⊤ ⊑ Pizza
-AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
 Pizza ⊑ ∃hasBase.PizzaBase
+∃hasTopping.⊤ ⊑ Pizza
+AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
 ∃hasIngredient.⊤ ⊑ DomainConcept
-AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
 ∃hasTopping.⊤ ⊑ Pizza
+AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
 Pizza ⊑ ∃hasBase.⊤
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
-Pizza ⊑ ∃hasIngredient.⊤
+∃hasTopping.⊤ ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ DomainConcept
 AmericanHot ⊑ ∃hasTopping.HotGreenPepperTopping
-∃hasTopping.⊤ ⊑ Pizza
+Pizza ⊑ ∃hasIngredient.⊤
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ Pizza
-Pizza ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasIngredient.⊤
 ----------------------------------------------------------------------------------------------------
 FORGETTING: HotGreenPepperTopping, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ Pizza
-Pizza ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasIngredient.⊤
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------

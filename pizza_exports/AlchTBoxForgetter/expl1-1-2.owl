@@ -12,13 +12,13 @@ domain(hasIngredient) = Food
 FORGETTING: Food, 
 ----------------------------------------------------------------------------------------------------
 isToppingOf ⊑ isIngredientOf
-American ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
+American ⊑ ∃hasTopping.PeperoniSausageTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: isIngredientOf, 
 ----------------------------------------------------------------------------------------------------
-American ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
+American ⊑ ∃hasTopping.PeperoniSausageTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------

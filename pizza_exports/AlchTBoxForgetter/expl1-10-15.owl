@@ -13,23 +13,23 @@ domain(hasIngredient) = Food
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
+AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 Pizza ⊑ ∃hasBase.⊤
 ∃hasTopping.⊤ ⊑ Pizza
-AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasIngredient.⊤ ⊑ Food
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
-AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasIngredient.⊤ ⊑ Food
 ∃hasTopping.⊤ ⊑ Pizza
+AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: isIngredientOf, 
 ----------------------------------------------------------------------------------------------------
-AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasIngredient.⊤ ⊑ Food
 ∃hasTopping.⊤ ⊑ Pizza
+AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------

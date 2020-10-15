@@ -10,28 +10,28 @@ FORGETTING: PizzaBase,
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
 ∃hasTopping.⊤ ⊑ Pizza
+Pizza ⊑ ∃hasBase.⊤
 American ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasIngredient.⊤ ⊑ Food
-Pizza ⊑ ∃hasBase.⊤
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
-Pizza ⊑ ∃hasIngredient.⊤
-∃hasIngredient.⊤ ⊑ Food
-American ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasTopping.⊤ ⊑ Pizza
+Pizza ⊑ ∃hasIngredient.⊤
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+∃hasIngredient.⊤ ⊑ Food
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ Pizza
-∃hasIngredient.⊤ ⊑ Food
 Pizza ⊑ ∃hasIngredient.⊤
+∃hasIngredient.⊤ ⊑ Food
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PeperoniSausageTopping, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ Pizza
-∃hasIngredient.⊤ ⊑ Food
 Pizza ⊑ ∃hasIngredient.⊤
+∃hasIngredient.⊤ ⊑ Food
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------

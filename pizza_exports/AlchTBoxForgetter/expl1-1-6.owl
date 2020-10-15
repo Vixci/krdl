@@ -22,23 +22,23 @@ Pizza ⊑ ∃hasBase.PizzaBase
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
-American ⊑ ∃hasTopping.TomatoTopping
+∃hasIngredient.⊤ ⊑ DomainConcept
 Pizza ⊑ ∃hasBase.⊤
 ∃hasTopping.⊤ ⊑ Pizza
-∃hasIngredient.⊤ ⊑ DomainConcept
+American ⊑ ∃hasTopping.TomatoTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
+∃hasIngredient.⊤ ⊑ DomainConcept
 American ⊑ ∃hasTopping.TomatoTopping
 ∃hasTopping.⊤ ⊑ Pizza
-∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
 FORGETTING: isIngredientOf, 
 ----------------------------------------------------------------------------------------------------
+∃hasIngredient.⊤ ⊑ DomainConcept
 American ⊑ ∃hasTopping.TomatoTopping
 ∃hasTopping.⊤ ⊑ Pizza
-∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------

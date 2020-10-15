@@ -8,34 +8,34 @@ domain(hasTopping) = Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: FishTopping, 
 ----------------------------------------------------------------------------------------------------
-VegetarianPizza ⊑ Pizza
-NonVegetarianPizza ⊑ Pizza
-(NonVegetarianPizza ⊓ VegetarianPizza) ⊑ ⊥
-Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤ ⊔ ∃hasTopping.MeatTopping)
-∃hasTopping.⊤ ⊑ Pizza
 (VegetarianPizza ⊓ ∃hasTopping.MeatTopping) ⊑ ⊥
-American ⊑ ∃hasTopping.PeperoniSausageTopping
-PeperoniSausageTopping ⊑ MeatTopping
+∃hasTopping.⊤ ⊑ Pizza
 Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
+(NonVegetarianPizza ⊓ VegetarianPizza) ⊑ ⊥
+PeperoniSausageTopping ⊑ MeatTopping
+NonVegetarianPizza ⊑ Pizza
+VegetarianPizza ⊑ Pizza
+Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤ ⊔ ∃hasTopping.MeatTopping)
+American ⊑ ∃hasTopping.PeperoniSausageTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: MeatTopping, 
 ----------------------------------------------------------------------------------------------------
+American ⊑ ∃hasTopping.PeperoniSausageTopping
+VegetarianPizza ⊑ Pizza
+(VegetarianPizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ ⊥
 ∃hasTopping.⊤ ⊑ Pizza
 Pizza ⊑ (NonVegetarianPizza ⊔ VegetarianPizza)
 NonVegetarianPizza ⊑ Pizza
-American ⊑ ∃hasTopping.PeperoniSausageTopping
 Pizza ⊑ (VegetarianPizza ⊔ ∃hasTopping.⊤)
-(VegetarianPizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ ⊥
 (NonVegetarianPizza ⊓ VegetarianPizza) ⊑ ⊥
-VegetarianPizza ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: VegetarianPizza, 
 ----------------------------------------------------------------------------------------------------
-∃hasTopping.⊤ ⊑ Pizza
 American ⊑ ∃hasTopping.PeperoniSausageTopping
+∃hasTopping.⊤ ⊑ Pizza
+(Pizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ NonVegetarianPizza
 NonVegetarianPizza ⊑ Pizza
 (NonVegetarianPizza ⊓ Pizza) ⊑ ∃hasTopping.⊤
-(Pizza ⊓ ∃hasTopping.PeperoniSausageTopping) ⊑ NonVegetarianPizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------

@@ -9,23 +9,23 @@ domain(hasIngredient) = Food
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
-∃hasTopping.⊤ ⊑ Pizza
-∃hasIngredient.⊤ ⊑ Food
 Pizza ⊑ ∃hasBase.⊤
+∃hasIngredient.⊤ ⊑ Food
 American ⊑ ∃hasTopping.TomatoTopping
+∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
+Pizza ⊑ ∃hasIngredient.⊤
 American ⊑ ∃hasTopping.TomatoTopping
 ∃hasTopping.⊤ ⊑ Pizza
-Pizza ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ Food
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ Pizza
-∃hasIngredient.⊤ ⊑ Food
 Pizza ⊑ ∃hasIngredient.⊤
+∃hasIngredient.⊤ ⊑ Food
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------

@@ -245,6 +245,12 @@ public class OntologyInspector {
         dir.mkdir();
     }
 
+    public Set<OWLEntity> getEntitiesOfClassType(Set<ClassExpressionType> classTypes) {
+        return ontology.nestedClassExpressions()
+                .filter(p -> classTypes.contains(p.getClassExpressionType()))
+                .flatMap(p -> p.signature())
+                .collect(Collectors.toSet());
+    }
     public OWLOntology getOntology() {
         return ontology;
     }

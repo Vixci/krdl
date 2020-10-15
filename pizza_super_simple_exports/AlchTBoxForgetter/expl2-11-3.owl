@@ -4,12 +4,13 @@ hasTopping ⊑ hasIngredient
 Caprina ⊑ ∃hasTopping.SundriedTomatoTopping
 domain(hasIngredient) = Food
 ----------------------------------------------------------------------------------------------------
-FORGETTING: hasTopping, 
+FORGETTING: SundriedTomatoTopping, 
 ----------------------------------------------------------------------------------------------------
-Caprina ⊑ ∃hasIngredient.SundriedTomatoTopping
+hasTopping ⊑ hasIngredient
+Caprina ⊑ ∃hasTopping.⊤
 ∃hasIngredient.⊤ ⊑ Food
 ----------------------------------------------------------------------------------------------------
-FORGETTING: SundriedTomatoTopping, 
+FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 Caprina ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ Food

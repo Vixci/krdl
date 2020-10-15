@@ -1,10 +1,10 @@
 EXPLAINING SUBSUMPTION: American ⊑ DomainConcept
 ****************************************************************************************************
 isBaseOf ⊑ isIngredientOf
-NamedPizza ⊑ Pizza
 American ⊑ NamedPizza
-Pizza ⊑ ∃hasBase.PizzaBase
+NamedPizza ⊑ Pizza
 Food ⊑ DomainConcept
+Pizza ⊑ ∃hasBase.PizzaBase
 isIngredientOf ⊑ hasIngredient⁻
 hasIngredient ⊑ isIngredientOf⁻
 hasBase ⊑ isBaseOf⁻
@@ -14,17 +14,17 @@ domain(hasIngredient) = Food
 FORGETTING: Food, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
-Pizza ⊑ ∃hasBase.PizzaBase
-∃hasIngredient.⊤ ⊑ DomainConcept
-American ⊑ NamedPizza
 NamedPizza ⊑ Pizza
+∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasBase.PizzaBase
+American ⊑ NamedPizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: NamedPizza, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
 American ⊑ Pizza
-∃hasIngredient.⊤ ⊑ DomainConcept
 Pizza ⊑ ∃hasBase.PizzaBase
+∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
@@ -36,13 +36,13 @@ American ⊑ Pizza
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
-American ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ DomainConcept
+American ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: isIngredientOf, 
 ----------------------------------------------------------------------------------------------------
-American ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ DomainConcept
+American ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------

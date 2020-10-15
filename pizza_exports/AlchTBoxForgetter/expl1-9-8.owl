@@ -10,37 +10,37 @@ domain(hasIngredient) = Food
 FORGETTING: Food, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
-∃hasIngredient.⊤ ⊑ DomainConcept
-AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
 Pizza ⊑ ∃hasBase.PizzaBase
 ∃hasTopping.⊤ ⊑ Pizza
+AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
+∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
-∃hasTopping.⊤ ⊑ Pizza
-∃hasIngredient.⊤ ⊑ DomainConcept
 AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
+∃hasIngredient.⊤ ⊑ DomainConcept
 Pizza ⊑ ∃hasBase.⊤
+∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
-Pizza ⊑ ∃hasIngredient.⊤
 AmericanHot ⊑ ∃hasTopping.PeperoniSausageTopping
-∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasIngredient.⊤
 ∃hasTopping.⊤ ⊑ Pizza
+∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ Pizza
-Pizza ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasIngredient.⊤
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PeperoniSausageTopping, 
 ----------------------------------------------------------------------------------------------------
 AmericanHot ⊑ Pizza
-Pizza ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasIngredient.⊤
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------

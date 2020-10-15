@@ -14,31 +14,31 @@ domain(hasIngredient) = Food
 FORGETTING: Food, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
+∃hasTopping.⊤ ⊑ Pizza
+Pizza ⊑ ∃hasBase.PizzaBase
 ∃hasIngredient.⊤ ⊑ DomainConcept
 American ⊑ ∃hasTopping.PeperoniSausageTopping
-Pizza ⊑ ∃hasBase.PizzaBase
-∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
 ∃hasIngredient.⊤ ⊑ DomainConcept
+American ⊑ ∃hasTopping.PeperoniSausageTopping
 Pizza ⊑ ∃hasBase.⊤
 ∃hasTopping.⊤ ⊑ Pizza
-American ⊑ ∃hasTopping.PeperoniSausageTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
+∃hasIngredient.⊤ ⊑ DomainConcept
 American ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasTopping.⊤ ⊑ Pizza
-∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
 FORGETTING: isIngredientOf, 
 ----------------------------------------------------------------------------------------------------
+∃hasIngredient.⊤ ⊑ DomainConcept
 American ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasTopping.⊤ ⊑ Pizza
-∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------

@@ -10,37 +10,37 @@ domain(hasIngredient) = Food
 FORGETTING: Food, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
-∃hasTopping.⊤ ⊑ Pizza
 Pizza ⊑ ∃hasBase.PizzaBase
 American ⊑ ∃hasTopping.PeperoniSausageTopping
+∃hasTopping.⊤ ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
-Pizza ⊑ ∃hasBase.⊤
-∃hasTopping.⊤ ⊑ Pizza
 American ⊑ ∃hasTopping.PeperoniSausageTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasBase.⊤
+∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
-∃hasIngredient.⊤ ⊑ DomainConcept
-∃hasTopping.⊤ ⊑ Pizza
-Pizza ⊑ ∃hasIngredient.⊤
 American ⊑ ∃hasTopping.PeperoniSausageTopping
+∃hasTopping.⊤ ⊑ Pizza
+∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasIngredient.⊤
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ Pizza
-Pizza ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasIngredient.⊤
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PeperoniSausageTopping, 
 ----------------------------------------------------------------------------------------------------
 American ⊑ Pizza
-Pizza ⊑ ∃hasIngredient.⊤
 ∃hasIngredient.⊤ ⊑ DomainConcept
+Pizza ⊑ ∃hasIngredient.⊤
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------

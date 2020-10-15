@@ -6,21 +6,42 @@ VegetarianTopping ≡ (PizzaTopping ⊓ (HerbSpiceTopping ⊔ FruitTopping ⊔ V
 FORGETTING: SauceTopping, 
 ----------------------------------------------------------------------------------------------------
 CheeseTopping ⊑ PizzaTopping
+(NutTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(CheeseTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(HerbSpiceTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
 (FruitTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
 VegetarianTopping ⊑ PizzaTopping
 (PizzaTopping ⊓ VegetableTopping) ⊑ VegetarianTopping
-(NutTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
-(HerbSpiceTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
-(CheeseTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: HerbSpiceTopping, 
 ----------------------------------------------------------------------------------------------------
+VegetarianTopping ⊑ PizzaTopping
+(PizzaTopping ⊓ VegetableTopping) ⊑ VegetarianTopping
+(FruitTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(CheeseTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(NutTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+CheeseTopping ⊑ PizzaTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: VegetableTopping, 
+----------------------------------------------------------------------------------------------------
+VegetarianTopping ⊑ PizzaTopping
+(NutTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+CheeseTopping ⊑ PizzaTopping
+(CheeseTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(FruitTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: FruitTopping, 
+----------------------------------------------------------------------------------------------------
+(NutTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+(CheeseTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
 CheeseTopping ⊑ PizzaTopping
 VegetarianTopping ⊑ PizzaTopping
+----------------------------------------------------------------------------------------------------
+FORGETTING: NutTopping, 
+----------------------------------------------------------------------------------------------------
 (CheeseTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
-(PizzaTopping ⊓ VegetableTopping) ⊑ VegetarianTopping
-(NutTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
-(FruitTopping ⊓ PizzaTopping) ⊑ VegetarianTopping
+CheeseTopping ⊑ PizzaTopping
+VegetarianTopping ⊑ PizzaTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PizzaTopping, 
 ----------------------------------------------------------------------------------------------------

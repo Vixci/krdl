@@ -1,19 +1,19 @@
 EXPLAINING SUBSUMPTION: AmericanHot ⊑ DomainConcept
 ****************************************************************************************************
 hasBase ⊑ hasIngredient
-AmericanHot ⊑ NamedPizza
-Pizza ⊑ ∃hasBase.PizzaBase
 Food ⊑ DomainConcept
 NamedPizza ⊑ Pizza
+AmericanHot ⊑ NamedPizza
+Pizza ⊑ ∃hasBase.PizzaBase
 domain(hasIngredient) = Food
 ----------------------------------------------------------------------------------------------------
 FORGETTING: Food, 
 ----------------------------------------------------------------------------------------------------
 hasBase ⊑ hasIngredient
-NamedPizza ⊑ Pizza
 AmericanHot ⊑ NamedPizza
-Pizza ⊑ ∃hasBase.PizzaBase
 ∃hasIngredient.⊤ ⊑ DomainConcept
+NamedPizza ⊑ Pizza
+Pizza ⊑ ∃hasBase.PizzaBase
 ----------------------------------------------------------------------------------------------------
 FORGETTING: NamedPizza, 
 ----------------------------------------------------------------------------------------------------
@@ -32,8 +32,8 @@ AmericanHot ⊑ Pizza
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
 Pizza ⊑ ∃hasIngredient.⊤
-AmericanHot ⊑ Pizza
 ∃hasIngredient.⊤ ⊑ DomainConcept
+AmericanHot ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasIngredient, 
 ----------------------------------------------------------------------------------------------------

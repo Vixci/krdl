@@ -16,28 +16,28 @@ FORGETTING: Food,
 isBaseOf ⊑ isIngredientOf
 Pizza ⊑ ∃hasBase.PizzaBase
 ∃hasIngredient.⊤ ⊑ DomainConcept
-∃hasTopping.⊤ ⊑ Pizza
 AmericanHot ⊑ ∃hasTopping.TomatoTopping
+∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: PizzaBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
-∃hasIngredient.⊤ ⊑ DomainConcept
 ∃hasTopping.⊤ ⊑ Pizza
-Pizza ⊑ ∃hasBase.⊤
 AmericanHot ⊑ ∃hasTopping.TomatoTopping
+Pizza ⊑ ∃hasBase.⊤
+∃hasIngredient.⊤ ⊑ DomainConcept
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasBase, 
 ----------------------------------------------------------------------------------------------------
 isBaseOf ⊑ isIngredientOf
-AmericanHot ⊑ ∃hasTopping.TomatoTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
+AmericanHot ⊑ ∃hasTopping.TomatoTopping
 ∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: isIngredientOf, 
 ----------------------------------------------------------------------------------------------------
-AmericanHot ⊑ ∃hasTopping.TomatoTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
+AmericanHot ⊑ ∃hasTopping.TomatoTopping
 ∃hasTopping.⊤ ⊑ Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 

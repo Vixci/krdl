@@ -7,9 +7,9 @@ domain(hasTopping) = Pizza
 ----------------------------------------------------------------------------------------------------
 FORGETTING: Food, 
 ----------------------------------------------------------------------------------------------------
-AmericanHot ⊑ ∃hasTopping.JalapenoPepperTopping
-∃hasTopping.⊤ ⊑ Pizza
 Pizza ⊑ DomainConcept
+∃hasTopping.⊤ ⊑ Pizza
+AmericanHot ⊑ ∃hasTopping.JalapenoPepperTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: JalapenoPepperTopping, 
 ----------------------------------------------------------------------------------------------------

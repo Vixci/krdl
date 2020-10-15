@@ -8,8 +8,8 @@ domain(hasIngredient) = Food
 FORGETTING: Food, 
 ----------------------------------------------------------------------------------------------------
 hasTopping ⊑ hasIngredient
-American ⊑ ∃hasTopping.TomatoTopping
 ∃hasIngredient.⊤ ⊑ DomainConcept
+American ⊑ ∃hasTopping.TomatoTopping
 ----------------------------------------------------------------------------------------------------
 FORGETTING: hasTopping, 
 ----------------------------------------------------------------------------------------------------
